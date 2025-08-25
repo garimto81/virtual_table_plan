@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버추얼 테이블 프로젝트 - 인터랙티브 운영 가이드</title>
+    <!-- Chosen Palette: Calm Neutrals -->
+    <!-- Application Structure Plan: A task-oriented, interactive step-by-step guide. The structure is divided into Roles, a 3-step Workflow, and an Equipment Appendix. The core interaction is a set of tabs in Step 2 that allows users to toggle between the 'Automated' and 'Manual' data transfer workflows. This structure was chosen to make the complex process easy to follow and reference in the field, allowing users to focus only on the relevant procedure at any given time, thus enhancing usability. -->
+    <!-- Visualization & Content Choices: Roles -> Goal: Inform -> 4-column grid layout with icons -> Justification: Clear separation of responsibilities for all team members. Workflow Step 2 -> Goal: Organize/Compare -> Interactive Tabs (JS toggle) -> Justification: Allows user to select and view one of two distinct processes without clutter. Verification -> Goal: Inform/Organize -> Interactive HTML checklist -> Justification: Visually represents the required verification steps. Equipment -> Goal: Inform -> Grid of cards with icons -> Justification: Easy-to-scan visual checklist. All visuals use HTML/CSS/Tailwind and Lucide icons. Confirmed NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #F5F5F4; /* stone-100 */
+            color: #1C1917; /* stone-900 */
+        }
+        .section-title {
+            font-weight: 900;
+            color: #047857; /* emerald-700 */
+        }
+        .step-card {
+            background-color: white;
+            border: 1px solid #E7E5E4; /* stone-200 */
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        .tab-button.active {
+            color: #047857; /* emerald-700 */
+            border-bottom-color: #047857; /* emerald-700 */
+            font-weight: 700;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .contingency-plan {
+            background-color: #FEFCE8; /* yellow-50 */
+            border: 1px solid #FACC15; /* yellow-400 */
+            border-left-width: 4px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+        .checklist-item:hover {
+            background-color: #F5F5F4; /* stone-100 */
+        }
+        .checklist-item input:checked + label {
+            text-decoration: line-through;
+            color: #78716C; /* stone-500 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-black text-stone-800">버추얼 테이블 프로젝트</h1>
+            <p class="mt-4 text-lg text-stone-600">인터랙티브 현장 운영 가이드라인</p>
+        </header>
+
+        <main class="space-y-20">
+            <!-- Section 1: Roles & Responsibilities -->
+            <section id="roles">
+                <h2 class="section-title text-3xl text-center mb-10">주요 역할 및 책임 (R&R)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="step-card text-center">
+                        <i data-lucide="video" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">디렉터</h3>
+                        <p class="text-sm text-stone-600">방송 콘텐츠의 방향성을 결정하고 촬영할 노터블 플레이어를 최종 선정합니다.</p>
+                    </div>
+                    <div class="step-card text-center">
+                        <i data-lucide="camera" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">현장 PD 겸 카메라</h3>
+                        <p class="text-sm text-stone-600">현장에서 콘텐츠 가치를 판단하여 중요한 순간만을 선별하여 촬영합니다.</p>
+                    </div>
+                    <div class="step-card text-center">
+                        <i data-lucide="database" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">데이터 매니저</h3>
+                        <p class="text-sm text-stone-600">촬영된 영상의 모든 액션을 정확하게 기록하고 데이터를 관리, 검증합니다.</p>
+                    </div>
+                    <div class="step-card text-center">
+                        <i data-lucide="scissors" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">후반 편집자</h3>
+                        <p class="text-sm text-stone-600">영상과 데이터를 취합하여 그래픽 오버레이를 삽입하고 최종 콘텐츠를 완성합니다.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Workflow -->
+            <section id="workflow">
+                <h2 class="section-title text-3xl text-center mb-12">현장 운영 프로세스</h2>
+                <div class="relative space-y-8">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">1</div>
+                            <h3 class="text-2xl font-bold">대상 식별 및 위치 파악</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                            <div class="bg-stone-50 p-4 rounded-lg">
+                                <h4 class="font-bold mb-2">1. 노터블 리스트 확인</h4>
+                                <p class="text-stone-600">기획팀 제공 리스트의 플레이어 사진과 객관적 이력(예: WSOP 우승, 누적 상금)을 숙지합니다.</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded-lg">
+                                <h4 class="font-bold mb-2">2. 좌석 파악</h4>
+                                <p class="text-stone-600">대회 시작 전, <strong>WSOP+</strong> 등을 통해 공식 좌석표를 입수하고 현장에서 실제 위치를 최종 확인합니다.</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded-lg">
+                                <h4 class="font-bold mb-2">3. 동선 계획 수립</h4>
+                                <p class="text-stone-600">플레이어 위치에 따라 최적의 순회 동선을 설계하고, 탈락 시 즉시 동선을 재수정합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">2</div>
+                            <h3 class="text-2xl font-bold">촬영 및 데이터 전달</h3>
+                        </div>
+                        <p class="text-stone-600 mb-6">현장 상황 및 장비 환경에 따라 아래 두 가지 방식 중 하나를 선택하여 진행합니다. 탭을 클릭하여 상세 내용을 확인하세요.</p>
+                        
+                        <div class="border-b border-stone-200 mb-6">
+                            <nav class="flex space-x-8 -mb-px" aria-label="Tabs">
+                                <button id="tab-auto" class="tab-button py-4 px-1 text-lg active" onclick="switchTab('auto')">
+                                    자동화 방식 (GoPro 클라우드)
+                                </button>
+                                <button id="tab-manual" class="tab-button py-4 px-1 text-lg" onclick="switchTab('manual')">
+                                    수동 방식 (SD 카드)
+                                </button>
+                            </nav>
+                        </div>
+
+                        <div id="content-auto" class="tab-content active">
+                            <ul class="space-y-4 text-stone-700">
+                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
+                            </ul>
+                        </div>
+                        <div id="content-manual" class="tab-content">
+                             <ul class="space-y-4 text-stone-700">
+                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 촬영을 시작하고, 데이터 매니저는 영상과 대조할 구체적인 정보(시간, 선수, 핸드 특징 등)를 구글 시트에 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="sd-card" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>물리적 전달:</strong> 브레이크 타임 등 정해진 시간에 촬영된 SD 카드를 지정된 파우치에 담아 데이터 매니저에게 안전하게 전달합니다.</span></li>
+                            </ul>
+                            <div class="contingency-plan rounded-lg p-5 mt-8">
+                                <div class="flex items-center">
+                                    <i data-lucide="alert-triangle" class="w-8 h-8 text-yellow-500 mr-4 shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-yellow-800">데이터 공백 문제 및 임시 조치 (Contingency Plan)</h4>
+                                        <p class="text-sm text-yellow-700 mt-1">데이터 매니저 부재 시, 현장 PD는 GoPro 녹화를 유지한 채로 개인 스마트폰을 이용해 **보드 카드와 승리 플레이어의 핸드를 명확하게 줌인하여 촬영**해 증거 자료를 확보합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">3</div>
+                            <h3 class="text-2xl font-bold">교차 검증 및 최종 전송</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-lg mb-3">1. 데이터 매칭 (검증 체크리스트)</h4>
+                                <p class="text-stone-600 mb-4 text-sm">'후반 작업자가 이 데이터만 보고도 상황을 완벽히 이해할 수 있는가?'의 관점에서 검토합니다.</p>
+                                <div class="space-y-2">
+                                    <div class="checklist-item"><input id="check1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check1" class="ml-3 block text-sm font-medium text-stone-700">파일명 일치 (자동화 방식)</label></div>
+                                    <div class="checklist-item"><input id="check2" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check2" class="ml-3 block text-sm font-medium text-stone-700">영상 속 플레이어와 기록 일치</label></div>
+                                    <div class="checklist-item"><input id="check3" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check3" class="ml-3 block text-sm font-medium text-stone-700">보드 카드 정보 일치</label></div>
+                                    <div class="checklist-item"><input id="check4" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check4" class="ml-3 block text-sm font-medium text-stone-700">최종 승자 및 핸드 정보 일치</label></div>
+                                </div>
+                            </div>
+                            <div class="bg-emerald-50 p-6 rounded-lg">
+                                <h4 class="font-bold text-lg mb-3">2. 최종 전송</h4>
+                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 **검증 완료된 구글 시트 링크**와 **GoPro 클라우드 폴더 링크(또는 영상 파일)**를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
+                                <i data-lucide="send" class="w-12 h-12 text-emerald-300 mt-4"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Appendix -->
+            <section id="equipment">
+                <h2 class="section-title text-3xl text-center mb-10">부록: 추천 촬영 장비 및 액세서리</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                        <i data-lucide="camera" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
+                        <h4 class="font-bold">적합 장비</h4>
+                        <p class="text-sm text-stone-600">고프로, DJI 액션캠 등</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                        <i data-lucide="battery-charging" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
+                        <h4 class="font-bold">여분 배터리</h4>
+                        <p class="text-sm text-stone-600">최소 3개 이상</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                        <i data-lucide="power" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
+                        <h4 class="font-bold">보조 배터리</h4>
+                        <p class="text-sm text-stone-600">대용량 Power Bank</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                        <i data-lucide="grip" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
+                        <h4 class="font-bold">거치대</h4>
+                        <p class="text-sm text-stone-600">소형 삼각대/고릴라포드</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-20 pt-8 border-t border-stone-200">
+            <p class="text-sm text-stone-500">&copy; 2025 Virtual Table Project. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        function switchTab(tabId) {
+            const tabs = ['auto', 'manual'];
+            tabs.forEach(id => {
+                const button = document.getElementById(`tab-${id}`);
+                const content = document.getElementById(`content-${id}`);
+                if (id === tabId) {
+                    button.classList.add('active');
+                    content.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                    content.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
