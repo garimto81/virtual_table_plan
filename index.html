@@ -202,23 +202,16 @@
                         
                         <div class="border-b border-stone-200 mb-6">
                             <nav class="flex space-x-8 -mb-px" aria-label="Tabs">
-                                <button id="tab-auto" class="tab-button py-4 px-1 text-lg active" onclick="switchTab('auto')">
-                                    자동화 방식 (GoPro 클라우드)
-                                </button>
-                                <button id="tab-manual" class="tab-button py-4 px-1 text-lg" onclick="switchTab('manual')">
+                                <button id="tab-manual" class="tab-button py-4 px-1 text-lg active" onclick="switchTab('manual')">
                                     수동 방식 (SD 카드)
+                                </button>
+                                <button id="tab-auto" class="tab-button py-4 px-1 text-lg" onclick="switchTab('auto')">
+                                    자동화 방식 (GoPro 클라우드)
                                 </button>
                             </nav>
                         </div>
 
-                        <div id="content-auto" class="tab-content active">
-                            <ul class="space-y-4 text-stone-700">
-                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
-                            </ul>
-                        </div>
-                        <div id="content-manual" class="tab-content">
+                        <div id="content-manual" class="tab-content active">
                              <ul class="space-y-4 text-stone-700">
                                 <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 촬영을 시작하고, 데이터 매니저는 영상과 대조할 구체적인 정보(시간, 선수, 핸드 특징 등)를 구글 시트에 기록합니다.</span></li>
                                 <li class="flex items-start"><i data-lucide="sd-card" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>물리적 전달:</strong> 브레이크 타임 등 정해진 시간에 촬영된 SD 카드를 지정된 파우치에 담아 데이터 매니저에게 안전하게 전달합니다.</span></li>
@@ -232,6 +225,13 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div id="content-auto" class="tab-content">
+                            <ul class="space-y-4 text-stone-700">
+                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
+                            </ul>
                         </div>
                     </div>
 
