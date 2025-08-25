@@ -52,6 +52,11 @@
             border: 1px solid #FACC15; /* yellow-400 */
             border-left-width: 4px;
         }
+        .info-box {
+            background-color: #F0F9FF; /* sky-50 */
+            border: 1px solid #7DD3FC; /* sky-300 */
+            border-left-width: 4px;
+        }
         .checklist-item {
             display: flex;
             align-items: center;
@@ -240,6 +245,15 @@
                                 <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
                                 <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
                             </ul>
+                            <div class="info-box rounded-lg p-5 mt-8">
+                                <div class="flex items-center">
+                                    <i data-lucide="info" class="w-8 h-8 text-sky-500 mr-4 shrink-0"></i>
+                                    <div>
+                                        <h4 class="font-bold text-lg text-sky-800">참고 사항</h4>
+                                        <p class="text-sm text-sky-700 mt-1">이 방식은 이론적인 토대만 있으며, 실제 현장 테스트를 통해 검증되지 않은 워크플로우입니다.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
