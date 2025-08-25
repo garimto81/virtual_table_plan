@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>버추얼 테이블 프로젝트 - 인터랙티브 운영 가이드</title>
     <!-- Chosen Palette: Calm Neutrals -->
-    <!-- Application Structure Plan: A task-oriented, interactive step-by-step guide. The structure is divided into Roles, a 3-step Workflow, and an Equipment Appendix. The core interaction is a set of tabs in Step 2 that allows users to toggle between the 'Automated' and 'Manual' data transfer workflows. This structure was chosen to make the complex process easy to follow and reference in the field, allowing users to focus only on the relevant procedure at any given time, thus enhancing usability. -->
-    <!-- Visualization & Content Choices: Roles -> Goal: Inform -> 4-column grid layout with icons -> Justification: Clear separation of responsibilities for all team members. Workflow Step 2 -> Goal: Organize/Compare -> Interactive Tabs (JS toggle) -> Justification: Allows user to select and view one of two distinct processes without clutter. Verification -> Goal: Inform/Organize -> Interactive HTML checklist -> Justification: Visually represents the required verification steps. Equipment -> Goal: Inform -> Grid of cards with icons -> Justification: Easy-to-scan visual checklist. All visuals use HTML/CSS/Tailwind and Lucide icons. Confirmed NO SVG/Mermaid. -->
+    <!-- Application Structure Plan: A task-oriented, interactive step-by-step guide. The structure is divided into Roles, a 3-step Workflow, a new Strategy section, and an Equipment Appendix. The core interaction is a set of tabs in Step 2 that allows users to toggle between the 'Automated' and 'Manual' data transfer workflows. This structure was chosen to make the complex process easy to follow and reference in the field, allowing users to focus only on the relevant procedure at any given time, thus enhancing usability. -->
+    <!-- Visualization & Content Choices: Roles -> Goal: Inform -> 4-column grid layout with icons -> Justification: Clear separation of responsibilities for all team members. Workflow Step 2 -> Goal: Organize/Compare -> Interactive Tabs (JS toggle) -> Justification: Allows user to select and view one of two distinct processes without clutter. Strategy -> Goal: Inform/Compare -> 4-column grid of cards with icons -> Justification: Clearly delineates the different strategies for each tournament phase. Verification -> Goal: Inform/Organize -> Interactive HTML checklist -> Justification: Visually represents the required verification steps. Equipment -> Goal: Inform -> Grid of cards with icons -> Justification: Easy-to-scan visual checklist. All visuals use HTML/CSS/Tailwind and Lucide icons. Confirmed NO SVG/Mermaid. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -29,6 +29,8 @@
             border-radius: 0.75rem;
             padding: 2rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            display: flex;
+            flex-direction: column;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -268,29 +270,113 @@
                 </div>
             </section>
 
+            <!-- Section 3: Strategy by Stage -->
+            <section id="strategy">
+                <h2 class="section-title text-3xl text-center mb-12">대회 단계별 촬영 전략</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Early Stage -->
+                    <div class="step-card">
+                        <div class="flex-grow">
+                            <i data-lucide="users" class="w-12 h-12 text-emerald-600 mb-4"></i>
+                            <h3 class="text-xl font-bold">대회 초반부</h3>
+                            <p class="text-sm font-medium text-stone-500 mb-3">Day 1 초~중반</p>
+                            <p class="text-sm text-stone-600 mb-4">가장 많은 노터블 플레이어가 존재하며, 버려지는 플레이도 많습니다. 신속한 촬영과 양적 데이터 확보가 중요합니다.</p>
+                        </div>
+                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
+                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
+                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
+                                <li>신속한 순회 및 촬영</li>
+                                <li>양적인 데이터 확보에 집중</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Early-Mid Stage -->
+                    <div class="step-card">
+                        <div class="flex-grow">
+                            <i data-lucide="swords" class="w-12 h-12 text-emerald-600 mb-4"></i>
+                            <h3 class="text-xl font-bold">대회 초중반부</h3>
+                            <p class="text-sm font-medium text-stone-500 mb-3">Day 1 후반 (레지 마감)</p>
+                            <p class="text-sm text-stone-600 mb-4">대부분의 스택이 10~30BB가 되면서 프리플랍 올인 싸움이 잦아집니다. 숏스택을 집중적으로 관찰해야 합니다.</p>
+                        </div>
+                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
+                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
+                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
+                                <li>숏스택 플레이어 집중 관찰</li>
+                                <li>모든 올인(All-in) 상황 촬영</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Mid Stage -->
+                    <div class="step-card">
+                        <div class="flex-grow">
+                            <i data-lucide="shield" class="w-12 h-12 text-emerald-600 mb-4"></i>
+                            <h3 class="text-xl font-bold">대회 중반</h3>
+                            <p class="text-sm font-medium text-stone-500 mb-3">Day 2 ~ 버블</p>
+                            <p class="text-sm text-stone-600 mb-4">생존을 위한 버티기 싸움이 시작되어 액션이 줄어듭니다. 촬영 분량이 가장 적은 시기입니다.</p>
+                        </div>
+                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
+                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
+                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
+                                <li>사소한 액션(오픈 폴드)도 기록</li>
+                                <li>근황 전달용 스토리 빌드업</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Mid-Late Stage -->
+                    <div class="step-card">
+                        <div class="flex-grow">
+                            <i data-lucide="gem" class="w-12 h-12 text-emerald-600 mb-4"></i>
+                            <h3 class="text-xl font-bold">대회 중후반</h3>
+                            <p class="text-sm font-medium text-stone-500 mb-3">버블 ~ 파이널 테이블</p>
+                            <p class="text-sm text-stone-600 mb-4">딥스택 간의 큰 싸움이 벌어집니다. 노터블이 아니더라도 큰 팟이 예상되면 촬영 가치가 높습니다.</p>
+                        </div>
+                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
+                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
+                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
+                                <li>노터블 외 큰 팟도 촬영</li>
+                                <li>전체 테이블 순회로 동선 변경</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Section 4: Appendix -->
             <section id="equipment">
-                <h2 class="section-title text-3xl text-center mb-10">부록: 추천 촬영 장비 및 액세서리</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
-                        <i data-lucide="camera" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
-                        <h4 class="font-bold">적합 장비</h4>
-                        <p class="text-sm text-stone-600">고프로, DJI 액션캠 등</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                <h2 class="section-title text-3xl text-center mb-12">부록: 추천 장비 및 필수 액세서리</h2>
+                
+                <h3 class="text-xl font-bold text-center text-stone-700 mb-8">필수 액세서리</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+                    <div class="step-card text-center">
                         <i data-lucide="battery-charging" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
                         <h4 class="font-bold">여분 배터리</h4>
                         <p class="text-sm text-stone-600">최소 3개 이상</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                    <div class="step-card text-center">
                         <i data-lucide="power" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
                         <h4 class="font-bold">보조 배터리</h4>
                         <p class="text-sm text-stone-600">대용량 Power Bank</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg border border-stone-200 text-center">
+                    <div class="step-card text-center">
                         <i data-lucide="grip" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i>
                         <h4 class="font-bold">거치대</h4>
                         <p class="text-sm text-stone-600">소형 삼각대/고릴라포드</p>
+                    </div>
+                </div>
+
+                <h3 class="text-xl font-bold text-center text-stone-700 mb-8">추천 장비 (예시)</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    <div>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="GoPro 카메라 정면" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro Hero 시리즈</p>
+                    </div>
+                    <div>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(11).png?raw=true" alt="GoPro MAX 360 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro MAX</p>
+                    </div>
+                    <div>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI Action 시리즈</p>
                     </div>
                 </div>
             </section>
