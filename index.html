@@ -52,11 +52,6 @@
             border: 1px solid #FACC15; /* yellow-400 */
             border-left-width: 4px;
         }
-        .info-box {
-            background-color: #F0F9FF; /* sky-50 */
-            border: 1px solid #7DD3FC; /* sky-300 */
-            border-left-width: 4px;
-        }
         .checklist-item {
             display: flex;
             align-items: center;
@@ -226,34 +221,25 @@
 
                         <div id="content-manual" class="tab-content active">
                              <ul class="space-y-4 text-stone-700">
-                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 촬영을 시작하고, 데이터 매니저는 영상과 대조할 구체적인 정보(시간, 선수, 핸드 특징 등)를 구글 시트에 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="sd-card" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>물리적 전달:</strong> 브레이크 타임 등 정해진 시간에 촬영된 SD 카드를 지정된 파우치에 담아 데이터 매니저에게 안전하게 전달합니다.</span></li>
-                            </ul>
+                                 <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><span class="font-bold text-emerald-700">촬영 및 기록:</span> 노터블 플레이어 참여 시 촬영을 시작하고, 데이터 매니저는 영상과 대조할 구체적인 정보(시간, 선수, 핸드 특징 등)를 구글 시트에 기록합니다.</span></li>
+                                 <li class="flex items-start"><i data-lucide="sd-card" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><span class="font-bold text-emerald-700">물리적 전달:</span> 브레이크 타임 등 정해진 시간에 촬영된 SD 카드를 지정된 파우치에 담아 데이터 매니저에게 안전하게 전달합니다.</span></li>
+                             </ul>
                             <div class="contingency-plan rounded-lg p-5 mt-8">
                                 <div class="flex items-center">
                                     <i data-lucide="alert-triangle" class="w-8 h-8 text-yellow-500 mr-4 shrink-0"></i>
                                     <div>
                                         <h4 class="font-bold text-lg text-yellow-800">데이터 공백 문제 및 임시 조치 (Contingency Plan)</h4>
-                                        <p class="text-sm text-yellow-700 mt-1">데이터 매니저 부재 시, 현장 PD는 GoPro 녹화를 유지한 채로 개인 스마트폰을 이용해 **보드 카드와 승리 플레이어의 핸드를 명확하게 줌인하여 촬영**해 증거 자료를 확보합니다.</p>
+                                        <p class="text-sm text-yellow-700 mt-1">데이터 매니저 부재 시, 현장 PD는 GoPro 녹화를 유지한 채로 개인 스마트폰을 이용해 <span class="font-bold text-yellow-800">보드 카드와 승리 플레이어의 핸드를 명확하게 줌인하여 촬영</span>해 증거 자료를 확보합니다.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div id="content-auto" class="tab-content">
                             <ul class="space-y-4 text-stone-700">
-                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><span class="font-bold text-emerald-700">촬영 및 기록:</span> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><span class="font-bold text-emerald-700">파일명 매칭 (핵심):</span> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
+                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><span class="font-bold text-emerald-700">자동 업로드:</span> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
                             </ul>
-                            <div class="info-box rounded-lg p-5 mt-8">
-                                <div class="flex items-center">
-                                    <i data-lucide="info" class="w-8 h-8 text-sky-500 mr-4 shrink-0"></i>
-                                    <div>
-                                        <h4 class="font-bold text-lg text-sky-800">참고 사항</h4>
-                                        <p class="text-sm text-sky-700 mt-1">이 방식은 이론적인 토대만 있으며, 실제 현장 테스트를 통해 검증되지 않은 워크플로우입니다.</p>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -276,7 +262,7 @@
                             </div>
                             <div class="bg-emerald-50 p-6 rounded-lg">
                                 <h4 class="font-bold text-lg mb-3">2. 최종 전송</h4>
-                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 **검증 완료된 구글 시트 링크**와 **GoPro 클라우드 폴더 링크(또는 영상 파일)**를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
+                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 <span class="font-semibold bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded">검증 완료된 구글 시트 링크</span>와 <span class="font-semibold bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded">GoPro 클라우드 폴더 링크(또는 영상 파일)</span>를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
                                 <i data-lucide="send" class="w-12 h-12 text-emerald-300 mt-4"></i>
                             </div>
                         </div>
@@ -379,18 +365,22 @@
                 </div>
 
                 <h3 class="text-xl font-bold text-center text-stone-700 mb-8">추천 장비 (예시)</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="GoPro 카메라 정면" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro Hero 시리즈</p>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="고프로 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=GoPro';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">고프로 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(11).png?raw=true" alt="GoPro MAX 360 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro MAX</p>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=DJI+Action';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI 액션 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI Action 시리즈</p>
+                        <img src="https://placehold.co/400x400/e7e5e4/78716c?text=Osmo+Pocket" alt="오즈모 포켓 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">오즈모 포켓 시리즈</p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/400x400/e7e5e4/78716c?text=iPhone" alt="아이폰" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">아이폰 시리즈</p>
                     </div>
                 </div>
             </section>
