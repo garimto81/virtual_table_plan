@@ -120,12 +120,13 @@
         /* Interactive Workflow Styles */
         .workflow-popup {
             position: absolute;
-            bottom: calc(100% + 0.75rem); /* Position above the card with a gap */
+            top: calc(100% + 0.75rem); /* Position below the card with a gap */
             left: 0; /* Initial position, will be adjusted by JS */
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
-            transform: translateY(10px) scale(0.95);
+            transform: translateY(-10px) scale(0.95);
+            transform-origin: top center;
             z-index: 20;
             background-color: white;
             border: 1px solid #d6d3d1;
@@ -255,29 +256,33 @@
                         <div class="workflow-popup">
                             <h4 class="font-bold text-center mb-3 text-sm">후반 편집 워크플로우</h4>
                             <div class="flex flex-col items-center space-y-2">
-                                <div class="flex items-center">
-                                    <div class="flow-step">자료/그래픽 수령</div>
-                                    <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
-                                    <div class="flow-step">데이터 검증</div>
-                                </div>
-                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flex items-center">
-                                     <div class="flow-step">구글 시트 데이터 적용</div>
-                                     <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
-                                     <div class="flow-step bg-emerald-100 border-emerald-200">Poker UI 그래픽 완성</div>
-                                </div>
-                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flow-step">영상과 결합</div>
-                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flow-step">인점 아웃점 편집</div>
-                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flow-step">불필요한 그래픽 편집</div>
-                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flex items-center">
-                                    <div class="flow-step">콘텐츠 완성</div>
-                                    <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
-                                    <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">최종 전달</div>
-                                </div>
+                               <div class="text-center">
+                                   <div class="text-xs font-bold text-stone-500 mb-1">프리 프로덕션</div>
+                                   <div class="flow-step">그래픽 수령</div>
+                               </div>
+                               <div class="w-full my-1 border-t-2 border-dashed border-stone-300"></div>
+                               <div class="text-center">
+                                   <div class="text-xs font-bold text-stone-500 mb-1">프로덕션</div>
+                                   <div class="flow-step">구글 시트 데이터 수령</div>
+                               </div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step">영상과 비교하여 데이터 검증</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step">구글 시트 데이터 적용</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step bg-emerald-100 border-emerald-200">Poker UI 그래픽 완성</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step">영상과 결합</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step">불필요한 부분 편집</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flow-step">인/아웃점 편집</div>
+                               <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                               <div class="flex items-center">
+                                   <div class="flow-step">콘텐츠 완성</div>
+                                   <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
+                                   <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">최종 전달</div>
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -312,9 +317,9 @@
                              <div class="workflow-popup">
                                 <h4 class="font-bold text-center mb-3 text-sm">기술 감독 워크플로우</h4>
                                 <div class="flex items-center justify-center space-x-2">
-                                    <div class="flow-step">현장 네트워크 지원</div>
+                                    <div class="flow-step">10Mbps+ 전용 라인 확보</div>
                                     <i data-lucide="arrow-right" class="flow-arrow w-5 h-5"></i>
-                                    <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">10Mbps+ 전용 라인 확보</div>
+                                    <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">현장 PD팀에 공유</div>
                                 </div>
                             </div>
                         </div>
