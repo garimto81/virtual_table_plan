@@ -58,6 +58,12 @@
             border: 1px solid #7DD3FC; /* sky-300 */
             border-left-width: 4px;
         }
+        .verified-box {
+            background-color: #F0FDF4; /* green-50 */
+            border: 1px solid #86EFAC; /* green-300 */
+            border-left-width: 4px;
+            border-left-color: #22C55E; /* green-500 */
+        }
         .checklist-item {
             display: flex;
             align-items: center;
@@ -172,6 +178,8 @@
             <!-- Section 1: Roles & Responsibilities -->
             <section id="roles">
                 <h2 class="section-title text-3xl text-center mb-10">주요 역할 및 책임 (R&R)</h2>
+                
+                <h3 class="text-2xl font-bold text-stone-700 text-center mb-8">핵심 역할 (Core Roles)</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
                     <!-- Director Card -->
@@ -242,31 +250,77 @@
                         <div class="step-card text-center h-full">
                             <i data-lucide="scissors" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">후반 편집자</h3>
-                            <p class="text-sm text-stone-600">영상과 데이터를 취합하여 그래픽 오버레이를 삽입하고 최종 콘텐츠를 완성합니다.</p>
+                            <p class="text-sm text-stone-600">영상과 데이터를 취합하여 Poker UI 그래픽을 완성하고 최종 콘텐츠를 제작합니다.</p>
                         </div>
                         <div class="workflow-popup">
                             <h4 class="font-bold text-center mb-3 text-sm">후반 편집 워크플로우</h4>
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="flex items-center">
-                                    <div class="flow-step">자료 확인</div>
+                                    <div class="flow-step">자료/그래픽 수령</div>
                                     <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
                                     <div class="flow-step">데이터 검증</div>
                                 </div>
                                 <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flex items-start">
-                                    <div class="flow-step bg-emerald-100 border-emerald-200">후반 작업</div>
-                                    <div class="flow-branch ml-2 pl-2 flex flex-col space-y-1.5 py-1">
-                                        <div class="flow-step text-xs">GFX 생성</div>
-                                        <div class="flow-step text-xs">영상/GFX 결합</div>
-                                        <div class="flow-step text-xs">최종 편집</div>
-                                    </div>
+                                <div class="flex items-center">
+                                     <div class="flow-step">구글 시트 데이터 적용</div>
+                                     <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
+                                     <div class="flow-step bg-emerald-100 border-emerald-200">Poker UI 그래픽 완성</div>
                                 </div>
                                 <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
-                                <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">완성본 전달</div>
+                                <div class="flow-step">영상과 결합</div>
+                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                                <div class="flow-step">인점 아웃점 편집</div>
+                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                                <div class="flow-step">불필요한 그래픽 편집</div>
+                                <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
+                                <div class="flex items-center">
+                                    <div class="flow-step">콘텐츠 완성</div>
+                                    <i data-lucide="arrow-right" class="flow-arrow w-4 h-4 mx-2"></i>
+                                    <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">최종 전달</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-stone-700 text-center mb-8">지원 역할 (Support Roles)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <!-- Graphic Designer Card -->
+                        <div class="group relative">
+                            <div class="step-card text-center h-full">
+                                <i data-lucide="figma" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                                <h3 class="text-xl font-bold mb-2">그래픽 디자이너</h3>
+                                <p class="text-sm text-stone-600">콘텐츠에 사용될 Poker UI 그래픽 에셋을 제작하고 시스템을 설계합니다.</p>
+                            </div>
+                            <div class="workflow-popup">
+                               <h4 class="font-bold text-center mb-3 text-sm">그래픽 디자이너 워크플로우</h4>
+                               <div class="flex items-center justify-center space-x-2">
+                                   <div class="flow-step">Poker UI 그래픽 작업</div>
+                                   <i data-lucide="arrow-right" class="flow-arrow w-5 h-5"></i>
+                                   <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">후반 편집자 전달</div>
+                               </div>
+                           </div>
+                       </div>
+                        <!-- Technical Director Card -->
+                        <div class="group relative">
+                            <div class="step-card text-center h-full">
+                                <i data-lucide="server" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
+                                <h3 class="text-xl font-bold mb-2">기술 감독</h3>
+                                <p class="text-sm text-stone-600">원활한 데이터 전송을 위한 현장 네트워크 환경을 구축하고 지원합니다.</p>
+                            </div>
+                             <div class="workflow-popup">
+                                <h4 class="font-bold text-center mb-3 text-sm">기술 감독 워크플로우</h4>
+                                <div class="flex items-center justify-center space-x-2">
+                                    <div class="flow-step">현장 네트워크 지원</div>
+                                    <i data-lucide="arrow-right" class="flow-arrow w-5 h-5"></i>
+                                    <div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">10Mbps+ 전용 라인 확보</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
             <!-- Section 2: Workflow -->
@@ -341,7 +395,7 @@
                                     수동 방식 (SD 카드)
                                 </button>
                                 <button id="tab-auto" class="tab-button py-4 px-1 text-lg" onclick="switchTab('auto')">
-                                    자동화 방식 (GoPro 클라우드)
+                                    자동화 방식
                                 </button>
                             </nav>
                         </div>
@@ -362,17 +416,47 @@
                              </div>
                         </div>
                         <div id="content-auto" class="tab-content">
-                            <ul class="space-y-4 text-stone-700">
-                                <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> 영상과 데이터를 연결하기 위해 `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
-                                <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드되어 물리적 전달 과정이 생략됩니다.</span></li>
-                            </ul>
-                            <div class="info-box rounded-lg p-5 mt-8">
-                                <div class="flex items-center">
-                                    <i data-lucide="info" class="w-8 h-8 text-sky-500 mr-4 shrink-0"></i>
-                                    <div>
-                                        <h4 class="font-bold text-lg text-sky-800">참고 사항</h4>
-                                        <p class="text-sm text-sky-700 mt-1">이 방식은 이론적인 토대만 있으며, 실제 현장 테스트를 통해 검증되지 않은 워크플로우입니다.</p>
+                            <div class="space-y-8">
+                                <!-- Option 1: GoPro Cloud -->
+                                <div class="bg-stone-50 p-6 rounded-lg border">
+                                    <div class="flex items-center mb-4">
+                                        <i data-lucide="cloud" class="w-7 h-7 mr-3 text-sky-500"></i>
+                                        <h4 class="text-lg font-bold text-stone-800">옵션 1: GoPro 클라우드 자동화</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-stone-700 pl-4 border-l-2 border-sky-200">
+                                        <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
+                                        <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
+                                        <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드됩니다.</span></li>
+                                    </ul>
+                                    <div class="info-box rounded-lg p-4 mt-5">
+                                        <div class="flex items-center">
+                                            <i data-lucide="info" class="w-7 h-7 text-sky-500 mr-3 shrink-0"></i>
+                                            <div>
+                                                <h5 class="font-bold text-md text-sky-800">참고 사항</h5>
+                                                <p class="text-sm text-sky-700 mt-1">이 방식은 이론적인 워크플로우이며, 실제 현장 테스트를 통해 검증이 필요합니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Option 2: Smartphone + Google Drive -->
+                                <div class="bg-stone-50 p-6 rounded-lg border">
+                                    <div class="flex items-center mb-4">
+                                        <i data-lucide="smartphone" class="w-7 h-7 mr-3 text-green-600"></i>
+                                        <h4 class="text-lg font-bold text-stone-800">옵션 2: 스마트폰 + 구글 드라이브</h4>
+                                    </div>
+                                    <ul class="space-y-3 text-stone-700 pl-4 border-l-2 border-green-200">
+                                        <li class="flex items-start"><i data-lucide="smartphone-charging" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 스마트폰으로 액션을 촬영하고, 데이터 매니저는 구글 시트에 정보를 기록합니다.</span></li>
+                                        <li class="flex items-start"><i data-lucide="wifi" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>수동 업로드:</strong> 촬영 후 와이파이 환경에서 지정된 구글 드라이브 폴더로 영상을 직접 업로드합니다.</span></li>
+                                    </ul>
+                                    <div class="verified-box rounded-lg p-4 mt-5">
+                                         <div class="flex items-center">
+                                            <i data-lucide="check-circle-2" class="w-7 h-7 text-green-600 mr-3 shrink-0"></i>
+                                            <div>
+                                                <h5 class="font-bold text-md text-green-800">검증된 방식</h5>
+                                                <p class="text-sm text-green-700 mt-1">이 워크플로우는 **2024년 WSOP BAHAMAS** 현장에서 성공적으로 검증되었습니다.</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +482,7 @@
                             </div>
                             <div class="bg-emerald-50 p-6 rounded-lg">
                                 <h4 class="font-bold text-lg mb-3">2. 최종 전송</h4>
-                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 **검증 완료된 구글 시트 링크**와 **GoPro 클라우드 폴더 링크(또는 영상 파일)**를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
+                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 **검증 완료된 구글 시트 링크**와 **클라우드 폴더 링크(또는 영상 파일)**를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
                                 <i data-lucide="send" class="w-12 h-12 text-emerald-300 mt-4"></i>
                             </div>
                         </div>
@@ -501,18 +585,22 @@
                 </div>
 
                 <h3 class="text-xl font-bold text-center text-stone-700 mb-8">추천 장비 (예시)</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="GoPro 카메라 정면" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/600x600/e7e5e4/78716c?text=Image+Not+Found';">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro Hero 시리즈</p>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="고프로 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=GoPro';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">고프로 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(11).png?raw=true" alt="GoPro MAX 360 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/600x600/e7e5e4/78716c?text=Image+Not+Found';">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">GoPro MAX</p>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f73f9b79143119a859898dae9521@ultra.png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=DJI+Action';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI 액션 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/600x600/e7e5e4/78716c?text=Image+Not+Found';">
-                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI Action 시리즈</p>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-08-26%20181427.png?raw=true" alt="오즈모 포켓 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=Osmo+Pocket';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">오즈모 포켓 시리즈</p>
+                    </div>
+                    <div>
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/NISI20250423_0001825532_web.jpg?raw=true" alt="아이폰" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=iPhone';">
+                        <p class="text-center text-sm text-stone-600 mt-2 font-medium">아이폰 시리즈</p>
                     </div>
                 </div>
             </section>
