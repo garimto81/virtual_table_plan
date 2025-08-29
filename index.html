@@ -32,7 +32,9 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease-in-out;
-            cursor: pointer;
+        }
+        .role-card {
+             cursor: pointer;
         }
         .tab-button {
             transition: all 0.3s ease;
@@ -143,7 +145,7 @@
             opacity: 1;
             transform: translateY(0) scale(1);
         }
-        .group:hover .step-card {
+        .group:hover .role-card {
             transform: translateY(-8px);
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             border-color: #34D399; /* emerald-400 */
@@ -243,6 +245,45 @@
         .workflow-detail strong {
             color: #1C1917; /* stone-900 */
         }
+        /* Composition Diagram Styles */
+        .diagram-box {
+            background-color: #F0F9FF; /* sky-50 */
+            border: 1px solid #BAE6FD; /* sky-200 */
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .diagram-arrow {
+            color: #A8A29E; /* stone-400 */
+        }
+        .parallel-branch {
+            position: relative;
+            padding-left: 2rem;
+            margin-left: 1rem;
+        }
+        .parallel-branch::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -1rem;
+            bottom: -1rem;
+            width: 2px;
+            background-color: #D6D3D1; /* stone-300 */
+            border-radius: 2px;
+        }
+        .parallel-branch .diagram-box {
+            position: relative;
+        }
+        .parallel-branch .diagram-box::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            width: 2rem;
+            height: 2px;
+            background-color: #D6D3D1; /* stone-300 */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -263,7 +304,7 @@
                     
                     <!-- Director Card -->
                     <div class="group relative" data-role="director">
-                        <div class="step-card text-center h-full">
+                        <div class="step-card role-card text-center h-full">
                             <i data-lucide="video" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">디렉터</h3>
                             <p class="text-sm text-stone-600">방송 콘텐츠의 방향성을 결정하고 촬영할 노터블 플레이어를 최종 선정합니다.</p>
@@ -284,7 +325,7 @@
 
                     <!-- Field PD Card -->
                     <div class="group relative" data-role="pd">
-                        <div class="step-card text-center h-full">
+                        <div class="step-card role-card text-center h-full">
                             <i data-lucide="camera" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">현장 PD 겸 카메라</h3>
                             <p class="text-sm text-stone-600">현장에서 콘텐츠 가치를 판단하여 중요한 순간만을 선별하여 촬영합니다.</p>
@@ -319,7 +360,7 @@
 
                     <!-- Data Manager Card -->
                     <div class="group relative" data-role="manager">
-                        <div class="step-card text-center h-full">
+                        <div class="step-card role-card text-center h-full">
                             <i data-lucide="database" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">데이터 매니저</h3>
                             <p class="text-sm text-stone-600">촬영된 영상의 모든 액션을 정확하게 기록하고 데이터를 관리, 검증합니다.</p>
@@ -341,7 +382,7 @@
 
                     <!-- Post-Editor Card -->
                     <div class="group relative" data-role="editor">
-                        <div class="step-card text-center h-full">
+                        <div class="step-card role-card text-center h-full">
                             <i data-lucide="scissors" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                             <h3 class="text-xl font-bold mb-2">후반 편집자</h3>
                             <p class="text-sm text-stone-600">영상과 데이터를 취합하여 Poker UI 그래픽을 완성하고 최종 콘텐츠를 제작합니다.</p>
@@ -386,7 +427,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <!-- Graphic Designer Card -->
                         <div class="group relative" data-role="designer">
-                            <div class="step-card text-center h-full">
+                            <div class="step-card role-card text-center h-full">
                                 <i data-lucide="figma" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                                 <h3 class="text-xl font-bold mb-2">그래픽 디자이너</h3>
                                 <p class="text-sm text-stone-600">콘텐츠에 사용될 Poker UI 그래픽 에셋을 제작하고 시스템을 설계합니다.</p>
@@ -402,7 +443,7 @@
                        </div>
                         <!-- Technical Director Card -->
                         <div class="group relative" data-role="tech">
-                            <div class="step-card text-center h-full">
+                            <div class="step-card role-card text-center h-full">
                                 <i data-lucide="server" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
                                 <h3 class="text-xl font-bold mb-2">기술 감독</h3>
                                 <p class="text-sm text-stone-600">원활한 데이터 전송을 위한 현장 네트워크 환경을 구축하고 지원합니다.</p>
@@ -419,6 +460,67 @@
                     </div>
                 </div>
 
+            </section>
+            
+            <!-- Section 1.5: Team Composition -->
+            <section id="composition">
+                <h2 class="section-title text-3xl text-center mb-12">운영 인원 구성</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="border-b border-stone-200 mb-6">
+                        <nav class="flex space-x-8 -mb-px justify-center" aria-label="Tabs">
+                            <button id="comp-tab-1cam" class="tab-button py-4 px-1 text-lg active" onclick="switchCompositionTab('1cam')">
+                                1 카메라 방식
+                            </button>
+                            <button id="comp-tab-2cam" class="tab-button py-4 px-1 text-lg" onclick="switchCompositionTab('2cam')">
+                                2 카메라 방식
+                            </button>
+                        </nav>
+                    </div>
+
+                    <div id="comp-content-1cam" class="tab-content active">
+                        <div class="space-y-8">
+                            <div>
+                                <h4 class="font-bold text-lg text-center mb-4">옵션 1: 후반 편집자 통합</h4>
+                                <div class="flex items-center justify-center space-x-4">
+                                    <div class="flex space-x-2">
+                                        <div class="diagram-box">카메라 맨</div>
+                                        <div class="diagram-box">데이터 매니저</div>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
+                                    <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
+                                </div>
+                            </div>
+                            <div class="border-t pt-8">
+                                <h4 class="font-bold text-lg text-center mb-4">옵션 2: 후반 작업 분리</h4>
+                                <div class="flex items-center justify-center space-x-4">
+                                    <div class="flex space-x-2">
+                                        <div class="diagram-box">카메라 맨</div>
+                                        <div class="diagram-box">데이터 매니저</div>
+                                    </div>
+                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
+                                    <div class="diagram-box bg-sky-100 border-sky-300">그래픽 디자이너</div>
+                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
+                                    <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="comp-content-2cam" class="tab-content">
+                        <h4 class="font-bold text-lg text-center mb-4">병행 편집 작업</h4>
+                        <div class="flex items-center justify-center">
+                            <div class="flex space-x-2">
+                                <div class="diagram-box">카메라 맨 x2</div>
+                                <div class="diagram-box">데이터 매니저</div>
+                            </div>
+                            <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6 mx-4"></i>
+                            <div class="flex flex-col space-y-4 parallel-branch">
+                                <div class="diagram-box bg-sky-100 border-sky-300">그래픽 디자이너</div>
+                                <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
+                                <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Section 2: Workflow -->
@@ -804,6 +906,21 @@
             tabs.forEach(id => {
                 const button = document.getElementById(`tab-${id}`);
                 const content = document.getElementById(`content-${id}`);
+                if (id === tabId) {
+                    button.classList.add('active');
+                    content.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                    content.classList.remove('active');
+                }
+            });
+        }
+        
+        function switchCompositionTab(tabId) {
+            const tabs = ['1cam', '2cam'];
+            tabs.forEach(id => {
+                const button = document.getElementById(`comp-tab-${id}`);
+                const content = document.getElementById(`comp-content-${id}`);
                 if (id === tabId) {
                     button.classList.add('active');
                     content.classList.add('active');
