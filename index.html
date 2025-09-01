@@ -179,12 +179,14 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.6);
             display: flex;
-            align-items: center;
             justify-content: center;
             z-index: 50;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
+            overflow-y: auto; /* Enable scrolling on the overlay */
+            align-items: flex-start; /* Align content to the top */
+            padding: 5vh 1rem; /* Add vertical padding */
         }
         .modal-overlay.active {
             opacity: 1;
@@ -196,11 +198,10 @@
             border-radius: 0.75rem;
             width: 90%;
             max-width: 640px;
-            max-height: 90vh;
-            overflow-y: auto;
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s ease;
+            margin: 0; /* Remove auto margin */
         }
         .modal-overlay.active .modal-content {
             transform: scale(1);
@@ -215,74 +216,67 @@
         .modal-close-btn:hover {
             color: #1C1917; /* stone-900 */
         }
-        .workflow-detail h4 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #047857; /* emerald-700 */
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #D1FAE5; /* emerald-100 */
-        }
-        .workflow-detail ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .workflow-detail li {
-            display: flex;
-            align-items: flex-start;
-            margin-top: 1rem;
-        }
-        .workflow-detail .step-icon {
-            flex-shrink: 0;
-            margin-right: 0.75rem;
-            color: #10B981; /* emerald-500 */
-            margin-top: 0.25rem;
-        }
-        .workflow-detail p {
-            font-size: 0.9rem;
-            color: #57534E; /* stone-600 */
-        }
-        .workflow-detail strong {
-            color: #1C1917; /* stone-900 */
-        }
-        /* Composition Diagram Styles */
-        .diagram-box {
-            background-color: #F0F9FF; /* sky-50 */
-            border: 1px solid #BAE6FD; /* sky-200 */
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            font-weight: 500;
-            text-align: center;
-        }
-        .diagram-arrow {
-            color: #A8A29E; /* stone-400 */
-        }
-        .parallel-branch {
+        
+        /* New Visual Workflow Styles */
+        .detail-step {
             position: relative;
-            padding-left: 2rem;
-            margin-left: 1rem;
+            padding-left: 3rem; 
+            padding-bottom: 2.5rem;
         }
-        .parallel-branch::before {
-            content: '';
+        .detail-step:last-child {
+            padding-bottom: 0;
+        }
+        .detail-step-icon {
             position: absolute;
             left: 0;
-            top: -1rem;
-            bottom: -1rem;
-            width: 2px;
-            background-color: #D6D3D1; /* stone-300 */
-            border-radius: 2px;
+            top: 0;
+            width: 2.25rem;
+            height: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ECFDF5; /* emerald-50 */
+            color: #059669; /* emerald-600 */
+            border-radius: 9999px;
+            border: 4px solid #BBF7D0; /* emerald-200 */
         }
-        .parallel-branch .diagram-box {
-            position: relative;
-        }
-        .parallel-branch .diagram-box::before {
-            content: '';
+        .detail-step-connector {
             position: absolute;
-            left: -2rem;
-            top: 50%;
-            width: 2rem;
-            height: 2px;
-            background-color: #D6D3D1; /* stone-300 */
+            left: 1.05rem;
+            top: 2.25rem;
+            bottom: -2.5rem;
+            width: 2px;
+            background-color: #D1FAE5; /* emerald-100 */
+        }
+        .detail-step:last-child .detail-step-connector {
+            display: none;
+        }
+        .detail-step-content strong {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: #065F46; /* emerald-800 */
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .detail-step-content p, .detail-step-content ul {
+            font-size: 0.95rem;
+            color: #57534E; /* stone-600 */
+        }
+        .sub-step-card {
+            background-color: #F8FAFC; /* slate-50 */
+            border: 1px solid #E2E8F0; /* slate-200 */
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 0.75rem;
+        }
+        .sub-step-card strong {
+            font-size: 1rem;
+            color: #1E293B; /* slate-800 */
+        }
+        .workflow-detail .list-disc {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
@@ -294,18 +288,18 @@
                 <h1 class="text-4xl md:text-5xl font-black text-stone-800">버추얼 테이블 프로젝트</h1>
                 <p class="mt-4 text-lg text-stone-600">인터랙티브 현장 운영 가이드라인</p>
             </div>
-            <a href="https://garimto81.github.io/virtual_table_rehearsal/" target="_blank" rel="noopener noreferrer" class="mt-6 md:mt-0 inline-flex items-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
+            <a href="rehearsal_results.html" class="mt-6 md:mt-0 inline-flex items-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
                 <i data-lucide="clipboard-check" class="w-5 h-5 mr-2"></i>
-                리허설 결과 보기
+                리허설 결과 및 상세 프로세스 보기
             </a>
         </header>
 
         <main class="space-y-20">
             <!-- Section 1: Roles & Responsibilities -->
             <section id="roles">
-                <h2 class="section-title text-3xl text-center mb-10">주요 역할 및 책임 (R&R)</h2>
+                <h2 class="section-title text-3xl text-center mb-4">주요 역할 및 책임 (R&R)</h2>
+                <p class="text-center text-stone-600 mb-10">각 역할별 카드를 클릭하면 정확한 프로세스 메뉴얼을 보여줌</p>
                 
-                <h3 class="text-2xl font-bold text-stone-700 text-center mb-8">핵심 역할 (Core Roles)</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     
                     <!-- Director Card -->
@@ -329,15 +323,15 @@
                         </div>
                     </div>
 
-                    <!-- Field PD Card -->
+                    <!-- Cameraman Card -->
                     <div class="group relative" data-role="pd">
                         <div class="step-card role-card text-center h-full">
                             <i data-lucide="camera" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i>
-                            <h3 class="text-xl font-bold mb-2">현장 PD 겸 카메라</h3>
+                            <h3 class="text-xl font-bold mb-2">카메라 맨</h3>
                             <p class="text-sm text-stone-600">현장에서 콘텐츠 가치를 판단하여 중요한 순간만을 선별하여 촬영합니다.</p>
                         </div>
                         <div class="workflow-popup">
-                            <h4 class="font-bold text-center mb-3 text-sm">현장 PD 워크플로우</h4>
+                            <h4 class="font-bold text-center mb-3 text-sm">카메라 맨 워크플로우</h4>
                             <div class="flex items-center">
                                 <div class="flow-step">현장 촬영</div>
                                 <i data-lucide="arrow-right" class="flow-arrow w-5 h-5 mx-2"></i>
@@ -468,305 +462,6 @@
 
             </section>
             
-            <!-- Section 1.5: Team Composition -->
-            <section id="composition">
-                <h2 class="section-title text-3xl text-center mb-12">운영 인원 구성</h2>
-                <div class="max-w-4xl mx-auto">
-                    <div class="border-b border-stone-200 mb-6">
-                        <nav class="flex space-x-8 -mb-px justify-center" aria-label="Tabs">
-                            <button id="comp-tab-1cam" class="tab-button py-4 px-1 text-lg active" onclick="switchCompositionTab('1cam')">
-                                1 카메라 방식
-                            </button>
-                            <button id="comp-tab-2cam" class="tab-button py-4 px-1 text-lg" onclick="switchCompositionTab('2cam')">
-                                2 카메라 방식
-                            </button>
-                        </nav>
-                    </div>
-
-                    <div id="comp-content-1cam" class="tab-content active">
-                        <div class="space-y-8">
-                            <div>
-                                <h4 class="font-bold text-lg text-center mb-4">옵션 1: 후반 편집자 통합</h4>
-                                <div class="flex items-center justify-center space-x-4">
-                                    <div class="flex space-x-2">
-                                        <div class="diagram-box">카메라 맨</div>
-                                        <div class="diagram-box">데이터 매니저</div>
-                                    </div>
-                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
-                                    <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
-                                </div>
-                            </div>
-                            <div class="border-t pt-8">
-                                <h4 class="font-bold text-lg text-center mb-4">옵션 2: 후반 작업 분리</h4>
-                                <div class="flex items-center justify-center space-x-4">
-                                    <div class="flex space-x-2">
-                                        <div class="diagram-box">카메라 맨</div>
-                                        <div class="diagram-box">데이터 매니저</div>
-                                    </div>
-                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
-                                    <div class="diagram-box bg-sky-100 border-sky-300">GFX 편집</div>
-                                    <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6"></i>
-                                    <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="comp-content-2cam" class="tab-content">
-                        <h4 class="font-bold text-lg text-center mb-4">병행 편집 작업</h4>
-                        <div class="flex items-center justify-center">
-                            <div class="flex space-x-2">
-                                <div class="diagram-box">카메라 맨 x2</div>
-                                <div class="diagram-box">데이터 매니저</div>
-                            </div>
-                            <i data-lucide="arrow-right" class="diagram-arrow w-6 h-6 mx-4"></i>
-                            <div class="flex flex-col space-y-4 parallel-branch">
-                                <div class="diagram-box bg-sky-100 border-sky-300">GFX 편집</div>
-                                <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
-                                <div class="diagram-box bg-emerald-100 border-emerald-300">후반 편집자</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 2: Workflow -->
-            <section id="workflow">
-                <h2 class="section-title text-3xl text-center mb-12">현장 운영 프로세스</h2>
-                <div class="relative space-y-8">
-                    <!-- Step 1 -->
-                    <div class="step-card">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">1</div>
-                            <h3 class="text-2xl font-bold">대상 식별 및 위치 파악</h3>
-                        </div>
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                            <!-- Sub-step 1.1 -->
-                            <div class="space-y-4">
-                                <h4 class="font-bold text-lg">1. 노터블 리스트 확인</h4>
-                                <p class="text-sm text-stone-600">기획팀이 선정한 플레이어의 객관적 이력을 숙지합니다.</p>
-                                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
-                                    <h5 class="font-bold">Player A (홍길동)</h5>
-                                    <p class="text-xs text-stone-500">2024 WSOP Main Event 우승자</p>
-                                </div>
-                                <div class="bg-stone-50 p-4 rounded-lg border border-stone-200">
-                                    <h5 class="font-bold">Player B (Satoshi)</h5>
-                                    <p class="text-xs text-stone-500">누적 상금 $20,000,000+</p>
-                                </div>
-                            </div>
-                            <!-- Sub-step 1.2 -->
-                            <div class="space-y-4">
-                                <h4 class="font-bold text-lg">2. 좌석 파악 및 시각화</h4>
-                                <p class="text-sm text-stone-600">WSOP+ 등으로 좌석표를 확인하고, 대회장 맵에 위치를 표시합니다.</p>
-                                <div class="table-map">
-                                    <div class="table-cell">1</div><div class="table-cell">2</div><div class="table-cell table-notable">3</div>
-                                    <div class="table-cell">4</div><div class="table-cell table-notable">5</div><div class="table-cell">6</div>
-                                    <div class="table-cell">7</div><div class="table-cell">8</div><div class="table-cell">9</div>
-                                    <div class="table-cell table-notable">10</div><div class="table-cell">11</div><div class="table-cell">12</div>
-                                    <div class="table-cell">13</div><div class="table-cell">14</div><div class="table-cell table-notable">15</div>
-                                    <div class="table-cell">16</div><div class="table-cell">17</div><div class="table-cell">18</div>
-                                </div>
-                                <p class="text-xs text-stone-500"><span class="inline-block w-3 h-3 bg-emerald-200 rounded-full mr-1"></span> 노터블 플레이어 위치</p>
-                            </div>
-                            <!-- Sub-step 1.3 -->
-                            <div class="space-y-4">
-                                <h4 class="font-bold text-lg">3. 최적 동선 설계</h4>
-                                <p class="text-sm text-stone-600">화살표를 따라 순회하며 촬영 대상을 지속적으로 확인합니다.</p>
-                                <div class="table-map">
-                                    <div class="table-cell">1</div><div class="table-cell">2</div>
-                                    <div class="table-cell table-route-node">3 <i data-lucide="arrow-right" class="route-arrow" style="top: 50%; left: 100%; transform: translate(0.5rem, -50%);"></i></div>
-                                    <div class="table-cell">4</div>
-                                    <div class="table-cell table-route-node">5 <i data-lucide="arrow-down-left" class="route-arrow" style="top: 100%; left: 50%; transform: translate(-1.5rem, 0.5rem);"></i></div>
-                                    <div class="table-cell">6</div><div class="table-cell">7</div><div class="table-cell">8</div><div class="table-cell">9</div>
-                                    <div class="table-cell table-route-node">10 <i data-lucide="arrow-down-left" class="route-arrow" style="top: 100%; left: 50%; transform: translate(-1rem, 0.5rem);"></i></div>
-                                    <div class="table-cell">11</div><div class="table-cell">12</div><div class="table-cell">13</div><div class="table-cell">14</div>
-                                    <div class="table-cell table-route-node">15 <i data-lucide="arrow-up" class="route-arrow" style="top: -2rem; left: 50%; transform: translateX(-50%);"></i></div>
-                                    <div class="table-cell">16</div><div class="table-cell">17</div><div class="table-cell">18</div>
-                                </div>
-                                <p class="text-xs text-stone-500"><i data-lucide="arrow-right" class="inline-block w-3 h-3 text-sky-500 mr-1"></i> 설계된 순회 동선</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="step-card">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">2</div>
-                            <h3 class="text-2xl font-bold">촬영 및 데이터 전달</h3>
-                        </div>
-                        <p class="text-stone-600 mb-6">현장 상황 및 장비 환경에 따라 아래 두 가지 방식 중 하나를 선택하여 진행합니다. 탭을 클릭하여 상세 내용을 확인하세요.</p>
-                        
-                        <div class="border-b border-stone-200 mb-6">
-                            <nav class="flex space-x-8 -mb-px" aria-label="Tabs">
-                                <button id="tab-manual" class="tab-button py-4 px-1 text-lg active" onclick="switchTab('manual')">
-                                    수동 방식 (SD 카드)
-                                </button>
-                                <button id="tab-auto" class="tab-button py-4 px-1 text-lg" onclick="switchTab('auto')">
-                                    자동화 방식
-                                </button>
-                            </nav>
-                        </div>
-
-                        <div id="content-manual" class="tab-content active">
-                             <ul class="space-y-4 text-stone-700">
-                                 <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 노터블 플레이어 참여 시 촬영을 시작하고, 데이터 매니저는 영상과 대조할 구체적인 정보(시간, 선수, 핸드 특징 등)를 구글 시트에 기록합니다.</span></li>
-                                 <li class="flex items-start"><i data-lucide="sd-card" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>물리적 전달:</strong> 브레이크 타임 등 정해진 시간에 촬영된 SD 카드를 지정된 파우치에 담아 데이터 매니저에게 안전하게 전달합니다.</span></li>
-                             </ul>
-                             <div class="contingency-plan rounded-lg p-5 mt-8">
-                                 <div class="flex items-center">
-                                     <i data-lucide="alert-triangle" class="w-8 h-8 text-yellow-500 mr-4 shrink-0"></i>
-                                     <div>
-                                         <h4 class="font-bold text-lg text-yellow-800">데이터 공백 문제 및 임시 조치 (Contingency Plan)</h4>
-                                         <p class="text-sm text-yellow-700 mt-1">데이터 매니저 부재 시, 현장 PD는 GoPro 녹화를 유지한 채로 개인 스마트폰을 이용해 **보드 카드와 승리 플레이어의 핸드를 명확하게 줌인하여 촬영**해 증거 자료를 확보합니다.</p>
-                                     </div>
-                                 </div>
-                             </div>
-                        </div>
-                        <div id="content-auto" class="tab-content">
-                            <div class="space-y-8">
-                                <!-- Option 1: GoPro Cloud -->
-                                <div class="bg-stone-50 p-6 rounded-lg border">
-                                    <div class="flex items-center mb-4">
-                                        <i data-lucide="cloud" class="w-7 h-7 mr-3 text-sky-500"></i>
-                                        <h4 class="text-lg font-bold text-stone-800">옵션 1: GoPro 클라우드 자동화</h4>
-                                    </div>
-                                    <ul class="space-y-3 text-stone-700 pl-4 border-l-2 border-sky-200">
-                                        <li class="flex items-start"><i data-lucide="video" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> GoPro 촬영을 시작하고, 데이터 매니저는 구글 시트에 실시간으로 액션을 기록합니다.</span></li>
-                                        <li class="flex items-start"><i data-lucide="link" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>파일명 매칭 (핵심):</strong> `YYYYMMDD_이벤트명_이니셜_핸드번호` 형식으로 파일명을 구글 시트에 함께 기록합니다.</span></li>
-                                        <li class="flex items-start"><i data-lucide="cloud-upload" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>자동 업로드:</strong> 촬영된 영상은 GoPro 구독 서비스를 통해 자동으로 클라우드에 업로드됩니다.</span></li>
-                                    </ul>
-                                    <div class="info-box rounded-lg p-4 mt-5">
-                                        <div class="flex items-center">
-                                            <i data-lucide="info" class="w-7 h-7 text-sky-500 mr-3 shrink-0"></i>
-                                            <div>
-                                                <h5 class="font-bold text-md text-sky-800">참고 사항</h5>
-                                                <p class="text-sm text-sky-700 mt-1">이 방식은 이론적인 워크플로우이며, 실제 현장 테스트를 통해 검증이 필요합니다.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <!-- Option 2: Smartphone + Google Drive -->
-                                <div class="bg-stone-50 p-6 rounded-lg border">
-                                    <div class="flex items-center mb-4">
-                                        <i data-lucide="smartphone" class="w-7 h-7 mr-3 text-green-600"></i>
-                                        <h4 class="text-lg font-bold text-stone-800">옵션 2: 스마트폰 + 구글 드라이브</h4>
-                                    </div>
-                                    <ul class="space-y-3 text-stone-700 pl-4 border-l-2 border-green-200">
-                                        <li class="flex items-start"><i data-lucide="smartphone-charging" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>촬영 및 기록:</strong> 스마트폰으로 액션을 촬영하고, 데이터 매니저는 구글 시트에 정보를 기록합니다.</span></li>
-                                        <li class="flex items-start"><i data-lucide="wifi" class="w-5 h-5 mr-3 mt-1 text-emerald-600 shrink-0"></i><span><strong>수동 업로드:</strong> 촬영 후 와이파이 환경에서 지정된 구글 드라이브 폴더로 영상을 직접 업로드합니다.</span></li>
-                                    </ul>
-                                    <div class="verified-box rounded-lg p-4 mt-5">
-                                         <div class="flex items-center">
-                                            <i data-lucide="check-circle-2" class="w-7 h-7 text-green-600 mr-3 shrink-0"></i>
-                                            <div>
-                                                <h5 class="font-bold text-md text-green-800">검증된 방식</h5>
-                                                <p class="text-sm text-green-700 mt-1">이 워크플로우는 **2024년 WSOP BAHAMAS** 현장에서 성공적으로 검증되었습니다.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="step-card">
-                        <div class="flex items-center mb-6">
-                            <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-2xl font-bold mr-6">3</div>
-                            <h3 class="text-2xl font-bold">교차 검증 및 최종 전송</h3>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 class="font-bold text-lg mb-3">1. 데이터 매칭 (검증 체크리스트)</h4>
-                                <p class="text-stone-600 mb-4 text-sm">'후반 작업자가 이 데이터만 보고도 상황을 완벽히 이해할 수 있는가?'의 관점에서 검토합니다.</p>
-                                <div class="space-y-2">
-                                    <div class="checklist-item"><input id="check1" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check1" class="ml-3 block text-sm font-medium text-stone-700">파일명 일치 (자동화 방식)</label></div>
-                                    <div class="checklist-item"><input id="check2" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check2" class="ml-3 block text-sm font-medium text-stone-700">영상 속 플레이어와 기록 일치</label></div>
-                                    <div class="checklist-item"><input id="check3" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check3" class="ml-3 block text-sm font-medium text-stone-700">보드 카드 정보 일치</label></div>
-                                    <div class="checklist-item"><input id="check4" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"><label for="check4" class="ml-3 block text-sm font-medium text-stone-700">최종 승자 및 핸드 정보 일치</label></div>
-                                </div>
-                            </div>
-                            <div class="bg-emerald-50 p-6 rounded-lg">
-                                <h4 class="font-bold text-lg mb-3">2. 최종 전송</h4>
-                                <p class="text-emerald-800 text-sm">모든 검증 완료 후, 후반 작업팀에게 **검증 완료된 구글 시트 링크**와 **클라우드 폴더 링크(또는 영상 파일)**를 명확한 제목과 함께 이메일/슬랙으로 전달합니다.</p>
-                                <i data-lucide="send" class="w-12 h-12 text-emerald-300 mt-4"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section 3: Strategy by Stage -->
-            <section id="strategy">
-                <h2 class="section-title text-3xl text-center mb-12">대회 단계별 촬영 전략</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Early Stage -->
-                    <div class="step-card">
-                        <div class="flex-grow">
-                            <i data-lucide="users" class="w-12 h-12 text-emerald-600 mb-4"></i>
-                            <h3 class="text-xl font-bold">대회 초반부</h3>
-                            <p class="text-sm font-medium text-stone-500 mb-3">Day 1 초~중반</p>
-                            <p class="text-sm text-stone-600 mb-4">가장 많은 노터블 플레이어가 존재하며, 버려지는 플레이도 많습니다. 신속한 촬영과 양적 데이터 확보가 중요합니다.</p>
-                        </div>
-                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
-                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
-                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
-                                <li>신속한 순회 및 촬영</li>
-                                <li>양적인 데이터 확보에 집중</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Early-Mid Stage -->
-                    <div class="step-card">
-                        <div class="flex-grow">
-                            <i data-lucide="swords" class="w-12 h-12 text-emerald-600 mb-4"></i>
-                            <h3 class="text-xl font-bold">대회 초중반부</h3>
-                            <p class="text-sm font-medium text-stone-500 mb-3">Day 1 후반 (레지 마감)</p>
-                            <p class="text-sm text-stone-600 mb-4">대부분의 스택이 10~30BB가 되면서 프리플랍 올인 싸움이 잦아집니다. 숏스택을 집중적으로 관찰해야 합니다.</p>
-                        </div>
-                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
-                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
-                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
-                                <li>숏스택 플레이어 집중 관찰</li>
-                                <li>모든 올인(All-in) 상황 촬영</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Mid Stage -->
-                    <div class="step-card">
-                        <div class="flex-grow">
-                            <i data-lucide="shield" class="w-12 h-12 text-emerald-600 mb-4"></i>
-                            <h3 class="text-xl font-bold">대회 중반</h3>
-                            <p class="text-sm font-medium text-stone-500 mb-3">Day 2 ~ 버블</p>
-                            <p class="text-sm text-stone-600 mb-4">생존을 위한 버티기 싸움이 시작되어 액션이 줄어듭니다. 촬영 분량이 가장 적은 시기입니다.</p>
-                        </div>
-                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
-                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
-                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
-                                <li>사소한 액션(오픈 폴드)도 기록</li>
-                                <li>근황 전달용 스토리 빌드업</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Mid-Late Stage -->
-                    <div class="step-card">
-                        <div class="flex-grow">
-                            <i data-lucide="gem" class="w-12 h-12 text-emerald-600 mb-4"></i>
-                            <h3 class="text-xl font-bold">대회 중후반</h3>
-                            <p class="text-sm font-medium text-stone-500 mb-3">버블 ~ 파이널 테이블</p>
-                            <p class="text-sm text-stone-600 mb-4">딥스택 간의 큰 싸움이 벌어집니다. 노터블이 아니더라도 큰 팟이 예상되면 촬영 가치가 높습니다.</p>
-                        </div>
-                        <div class="mt-auto bg-stone-50 p-3 rounded-lg">
-                            <h4 class="font-bold text-sm text-stone-800">촬영 핵심</h4>
-                            <ul class="list-disc list-inside text-xs text-stone-600 mt-1">
-                                <li>노터블 외 큰 팟도 촬영</li>
-                                <li>전체 테이블 순회로 동선 변경</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Section 4: Appendix -->
             <section id="equipment">
                 <h2 class="section-title text-3xl text-center mb-12">부록: 추천 장비 및 필수 액세서리</h2>
@@ -797,7 +492,7 @@
                         <p class="text-center text-sm text-stone-600 mt-2 font-medium">고프로 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f73f9b79143119a859898dae9521@ultra.png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=DJI+Action';">
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f79b79143119a859898dae9521@ultra.png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=DJI+Action';">
                         <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI 액션 시리즈</p>
                     </div>
                     <div>
@@ -838,104 +533,343 @@
     <!-- Hidden Detailed Workflow Content -->
     <div class="hidden">
         <div id="detail-director">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="clipboard-list" class="step-icon"></i><div><strong>1. 연출 기획:</strong><span> 콘텐츠의 전반적인 방향성을 결정하고, 촬영할 주요 선수군(노터블 플레이어)을 리스트업합니다.</span></div></li>
-                <li><i data-lucide="user-check" class="step-icon"></i><div><strong>2. 최종 대상 선정:</strong><span> 기획팀으로부터 전달받은 선수 이력과 현장 상황(테이블 위치, 스택 사이즈 등)을 종합하여 최종 촬영 대상을 선정합니다.</span></div></li>
-                <li><i data-lucide="send" class="step-icon"></i><div><strong>3. 현장팀 전달:</strong><span> 선정된 플레이어 리스트와 주요 관전 포인트를 포함한 촬영 가이드를 현장 PD에게 명확하게 전달합니다.</span></div></li>
-            </ul>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="clipboard-list"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 연출 기획</strong>
+                    <p>콘텐츠의 전반적인 방향성을 결정하고, 촬영할 주요 선수군(노터블 플레이어)을 리스트업합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="user-check"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 최종 대상 선정</strong>
+                    <p>기획팀으로부터 전달받은 선수 이력과 현장 상황(테이블 위치, 스택 사이즈 등)을 종합하여 최종 촬영 대상을 선정합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="send"></i></div>
+                <div class="detail-step-content">
+                    <strong>3. 현장팀 전달</strong>
+                    <p>선정된 플레이어 리스트와 주요 관전 포인트를 포함한 촬영 가이드를 현장 PD에게 명확하게 전달합니다.</p>
+                </div>
+            </div>
         </div>
         <div id="detail-pd">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="list-checks" class="step-icon"></i><div><strong>1. 촬영 준비:</strong><span> 디렉터로부터 전달받은 리스트를 숙지하고, 카메라, 배터리 등 장비를 세팅합니다. 지정된 노터블 플레이어의 테이블 위치를 파악하고 최적의 촬영 동선을 설계합니다.</span></div></li>
-                <li><i data-lucide="video" class="step-icon"></i><div><strong>2. 현장 촬영:</strong><span> 노터블 플레이어가 참여하는 핸드, 팟 사이즈가 큰 핸드 등 콘텐츠 가치가 높은 순간을 판단하여 촬영을 진행합니다.</span></div></li>
-                <li><i data-lucide="arrow-right-left" class="step-icon"></i><div><strong>3. 데이터 전달:</strong>
-                    <ul class="mt-2 space-y-2">
-                        <li><span><strong>- 촬영 데이터 (영상):</strong> 촬영된 영상 파일을 무선(클라우드) 또는 유선(SD카드) 방식을 통해 **후반팀**에 전달합니다.</span></li>
-                        <li><span><strong>- 인/아웃점 가이드:</strong> 편집에 필요한 주요 장면의 시작과 끝 시간 정보(타임코드)를 구두 또는 메신저로 **데이터 매니저**에게 전달하여 기록을 요청합니다.</span></li>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="list-checks"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 촬영 준비</strong>
+                    <p>디렉터로부터 전달받은 리스트를 숙지하고, 카메라, 배터리 등 장비를 세팅합니다. 지정된 노터블 플레이어의 테이블 위치를 파악하고 최적의 촬영 동선을 설계합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="video"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 현장 촬영</strong>
+                    <ul class="list-disc space-y-2">
+                        <li>노터블 플레이어가 참여하는 핸드, 팟 사이즈가 큰 핸드 등 콘텐츠 가치가 높은 순간을 판단하여 촬영을 진행합니다.</li>
+                        <li><span class="font-bold text-red-600">중요:</span> 1개의 핸드는 반드시 1개의 레코딩 파일만 존재해야 합니다. 만약 핸드 진행 도중 실수로 레코딩을 종료했다면, 해당 핸드는 추가 레코딩을 진행하지 않습니다.</li>
                     </ul>
-                </div></li>
-            </ul>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="arrow-right-left"></i></div>
+                <div class="detail-step-content">
+                    <strong>3. 데이터 전달 및 메모리 관리</strong>
+                    <div class="space-y-4">
+                        <div class="sub-step-card">
+                            <strong>파일 번호 공유</strong>
+                            <p>핸드 촬영 종료 후, 카메라에 표시된 파일 번호를 <strong>데이터 매니저</strong>에게 보여주고, 데이터 매니저는 이를 앱에 기록합니다.</p>
+                        </div>
+                        <div class="sub-step-card">
+                            <strong>메모리 카드 교체 (분기)</strong>
+                            <ul class="list-disc space-y-4 mt-2">
+                               <li>
+                                    <strong>Case 1. 후반 편집자가 현장에 있는 경우:</strong>
+                                    <div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                                        <h4 class="font-bold text-center mb-4 text-slate-800">메모리 카드 순환 워크플로우</h4>
+                                        <div class="relative w-full h-72">
+                                            <!-- Roles -->
+                                            <div class="absolute top-0 left-1/2 -translate-x-1/2 text-center">
+                                                <i data-lucide="camera" class="w-10 h-10 text-slate-700 mx-auto"></i>
+                                                <p class="font-bold text-sm mt-1">카메라 맨</p>
+                                            </div>
+                                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
+                                                <i data-lucide="monitor" class="w-10 h-10 text-slate-700 mx-auto"></i>
+                                                <p class="font-bold text-sm mt-1">후반팀</p>
+                                            </div>
+                                            <!-- Bins -->
+                                            <div class="absolute top-1/2 -translate-y-1/2 left-0 text-center">
+                                                <div class="relative w-28 h-24 border-2 border-dashed border-green-500 bg-green-50 rounded-lg flex flex-col items-center justify-center">
+                                                    <i data-lucide="sd-card" class="w-8 h-8 text-green-600"></i>
+                                                    <p class="text-sm mt-1 font-semibold text-green-800">작업 완료 통</p>
+                                                </div>
+                                            </div>
+                                            <div class="absolute top-1/2 -translate-y-1/2 right-0 text-center">
+                                                <div class="relative w-28 h-24 border-2 border-dashed border-sky-500 bg-sky-50 rounded-lg flex flex-col items-center justify-center">
+                                                    <i data-lucide="sd-card" class="w-8 h-8 text-sky-600"></i>
+                                                    <p class="text-sm mt-1 font-semibold text-sky-800">미작업 통</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Arrows & Labels -->
+                                            <div class="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 text-center">
+                                                <p class="text-xs font-semibold text-slate-500 mb-1">① 수령</p>
+                                                <i data-lucide="arrow-up-right" class="w-8 h-8 text-slate-400"></i>
+                                            </div>
+                                            <div class="absolute top-[20%] right-[25%] translate-x-1/2 -translate-y-1/2 text-center">
+                                                <p class="text-xs font-semibold text-slate-500 mb-1">② 반납</p>
+                                                <i data-lucide="arrow-down-right" class="w-8 h-8 text-slate-400"></i>
+                                            </div>
+                                            <div class="absolute bottom-[20%] right-[25%] translate-x-1/2 translate-y-1/2 text-center">
+                                                 <i data-lucide="arrow-down-left" class="w-8 h-8 text-slate-400"></i>
+                                                <p class="text-xs font-semibold text-slate-500 mt-1">③ 처리</p>
+                                            </div>
+                                            <div class="absolute bottom-[20%] left-[25%] -translate-x-1/2 translate-y-1/2 text-center">
+                                                <i data-lucide="arrow-up-left" class="w-8 h-8 text-slate-400"></i>
+                                                <p class="text-xs font-semibold text-slate-500 mt-1">④ 보충</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                               </li>
+                               <li>
+                                   <strong>Case 2. 후반 편집자가 본사에 있는 경우:</strong>
+                                   <div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                                       <h4 class="font-bold text-center mb-6 text-slate-800">선형 상호작용 다이어그램</h4>
+                                       <div class="flex items-center justify-center w-full py-4">
+                                           <!-- Actor 1: Cameraman -->
+                                           <div class="flex flex-col items-center text-center w-28">
+                                               <i data-lucide="camera" class="w-10 h-10 text-slate-700"></i>
+                                               <p class="font-bold text-sm mt-1">카메라 맨</p>
+                                           </div>
+                               
+                                           <!-- Interaction 1 -->
+                                           <div class="flex-1 flex flex-col items-center text-center px-2">
+                                               <p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">① 카드 전달</p>
+                                               <i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i>
+                                               <i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i>
+                                               <p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">④ 카드 반환</p>
+                                           </div>
+                               
+                                           <!-- Actor 2: Data Manager -->
+                                           <div class="flex flex-col items-center text-center w-28">
+                                               <i data-lucide="user" class="w-10 h-10 text-slate-700"></i>
+                                               <p class="font-bold text-sm mt-1">데이터 매니저</p>
+                                           </div>
+                               
+                                           <!-- Interaction 2 -->
+                                           <div class="flex-1 flex flex-col items-center text-center px-2">
+                                               <p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">② 데이터 전송</p>
+                                               <i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i>
+                                               <i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i>
+                                               <p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">③ 작업 후 복귀</p>
+                                           </div>
+                               
+                                           <!-- Actor 3: Data Station -->
+                                           <div class="flex flex-col items-center text-center w-28">
+                                               <i data-lucide="laptop" class="w-10 h-10 text-slate-700"></i>
+                                               <p class="font-bold text-sm mt-1">데이터 스테이션</p>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="detail-manager">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="keyboard" class="step-icon"></i><div><strong>1. 데이터 생성:</strong><span> 전용 앱 또는 프로그램을 사용하여 현장에서 발생하는 모든 액션(베팅, 폴드, 쇼다운 등)과 보드 카드, 팟 사이즈 등 상세 정보를 실시간으로 기록합니다.</span></div></li>
-                <li><i data-lucide="ear" class="step-icon"></i><div><strong>2. 가이드 수령:</strong><span> 현장 PD로부터 특정 핸드의 인/아웃점 가이드를 전달받습니다.</span></div></li>
-                <li><i data-lucide="file-spreadsheet" class="step-icon"></i><div><strong>3. 데이터 통합 및 공유:</strong><span> 생성한 데이터와 PD의 가이드를 구글 시트에 정확하게 통합하여 기록하고, 해당 시트 링크를 **후반팀**에 실시간으로 공유합니다.</span></div></li>
-            </ul>
+             <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="keyboard"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 데이터 생성 (On-site)</strong>
+                    <p>전용 앱을 사용하여 현장에서 발생하는 모든 액션(베팅, 폴드 등), 보드 카드, 팟 사이즈를 실시간으로 기록합니다.</p>
+                     <div class="mt-4 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl">
+                        <div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden">
+                             <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="Data entry app interface on a smartphone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="ear"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 정보 수령</strong>
+                    <p>카메라 맨으로부터 촬영된 핸드의 파일 번호와 편집에 필요한 인/아웃점 가이드를 구두 또는 메신저로 전달받습니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="file-spreadsheet"></i></div>
+                 <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>3. 데이터 통합 및 공유</strong>
+                    <p>앱에 기록한 데이터와 카메라 맨에게 받은 정보를 마스터 구글 시트에 정확하게 통합하여 기록하고, 해당 시트 링크를 <strong>후반팀</strong>에 실시간으로 공유합니다.</p>
+                </div>
+            </div>
+             <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="server"></i></div>
+                <div class="detail-step-content">
+                    <strong>4. 메모리 카드 관리 (원격 워크플로우 시)</strong>
+                     <div class="sub-step-card">
+                        <strong>후반 편집자가 본사에 있는 경우 (Case 2)</strong>
+                        <p>카메라 맨으로부터 메모리 카드를 수령하여 데이터 스테이션으로 이동, 데이터 전송을 완료한 후 다시 카메라 맨에게 안전하게 반환하는 역할을 수행합니다.</p>
+                         <div class="mt-4 p-4 bg-slate-100 rounded-lg border border-slate-200">
+                             <h4 class="font-bold text-center mb-6 text-slate-800">데이터 매니저 동선</h4>
+                             <div class="flex items-center justify-center w-full py-4">
+                                 <div class="flex flex-col items-center text-center w-28">
+                                     <i data-lucide="camera" class="w-10 h-10 text-slate-700"></i>
+                                     <p class="font-bold text-sm mt-1">카메라 맨</p>
+                                 </div>
+                                 <div class="flex-1 flex flex-col items-center text-center px-2">
+                                     <p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">① 카드 수령</p>
+                                     <i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i>
+                                     <i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i>
+                                     <p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">④ 카드 반환</p>
+                                 </div>
+                                 <div class="flex flex-col items-center text-center w-28">
+                                     <i data-lucide="user" class="w-10 h-10 text-emerald-600"></i>
+                                     <p class="font-bold text-sm mt-1">데이터 매니저</p>
+                                 </div>
+                                 <div class="flex-1 flex flex-col items-center text-center px-2">
+                                     <p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">② 데이터 전송</p>
+                                     <i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i>
+                                     <i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i>
+                                     <p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">③ 현장 복귀</p>
+                                 </div>
+                                 <div class="flex flex-col items-center text-center w-28">
+                                     <i data-lucide="laptop" class="w-10 h-10 text-slate-700"></i>
+                                     <p class="font-bold text-sm mt-1">데이터 스테이션</p>
+                                 </div>
+                             </div>
+                             <div class="mt-4 pt-4 border-t border-slate-300">
+                                 <h5 class="font-bold text-center mb-4 text-slate-700">파일 관리 프로세스</h5>
+                                 <ol class="space-y-3 text-sm">
+                                     <li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">1</span><i data-lucide="folder-plus" class="w-5 h-5 text-sky-600 mr-2 shrink-0"></i><span>PC에 각 <i data-lucide="camera" class="inline-block w-4 h-4 text-slate-500 mx-1"></i>카메라 별 폴더 생성</span></li>
+                                     <li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">2</span><i data-lucide="file-input" class="w-5 h-5 text-sky-600 mr-2 shrink-0"></i><span>해당 폴더에 영상 저장</span></li>
+                                     <li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">3</span><i data-lucide="cloud" class="w-5 h-5 text-green-600 mr-2 shrink-0"></i><span>구글 드라이브에 동일한 폴더 구조 생성</span></li>
+                                     <li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">4</span><i data-lucide="upload-cloud" class="w-5 h-5 text-green-600 mr-2 shrink-0"></i><span>각 폴더에 영상 전송</span></li>
+                                     <li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">5</span><i data-lucide="arrow-left-circle" class="w-5 h-5 text-slate-600 mr-2 shrink-0"></i><span>메모리 카드와 함께 현장 복귀</span></li>
+                                 </ol>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="detail-editor">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="folder-down" class="step-icon"></i><div><strong>1. 자료 수령:</strong>
-                    <ul class="mt-2 space-y-2">
-                        <li><span><strong>- (프리 프로덕션)</strong> 그래픽 디자이너로부터 Poker UI 그래픽 패키지(템플릿, 에셋 등)를 사전에 전달받습니다.</span></li>
-                        <li><span><strong>- (프로덕션)</strong> 현장팀으로부터 촬영 영상과 데이터 매니저로부터 구글 시트 링크를 상시 전달받습니다.</span></li>
+             <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="folder-down"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 자료 수령</strong>
+                     <p>(프로덕션) 슬랙에 새로운 핸드 등록 확인</p>
+                     <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20222904.png?raw=true" class="mt-2 rounded-lg border" alt="Slack 알림 예시">
+                     <p class="mt-4">앱으로 불러오기를 하여 핸드 정보 확인</p>
+                      <div class="mt-4 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl">
+                        <div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden">
+                             <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="file-check-2"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 교차 검증</strong>
+                    <p>수령한 영상과 앱의 데이터를 비교하여 플레이어, 핸드 정보, 보드 카드 등이 모두 일치하는지 면밀히 확인합니다.</p>
+                     <div class="sub-step-card contingency-plan mt-4">
+                         <strong>핸드 번호와 영상 불일치 시:</strong>
+                         <p>해당 영상을 데이터 없이 작업할 수 있는 경우(예: 스토리텔링용)에는 작업을 진행하고, 그렇지 않은 경우 폐기합니다.</p>
+                     </div>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="clapperboard"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>3. GFX 작업</strong>
+                     <ul class="list-disc space-y-2">
+                        <li>헤즈업 정보만으로 필요한 스트릿(Flop, Turn, River)까지 처리합니다.</li>
+                        <li>핸드 시작 전, 무작위 포지션의 두 플레이어 정보와 버튼 위치만 먼저 정합니다.</li>
+                        <li>앱의 위쪽에 있는 선수가 액션이 먼저 진행됩니다.</li>
+                        <li>'첵/콜' 또는 '첵/첵'으로 넘어가는 스트릿은 앱에 기록된대로 신속하게 처리합니다.</li>
                     </ul>
-                </div></li>
-                <li><i data-lucide="file-check-2" class="step-icon"></i><div><strong>2. 교차 검증:</strong><span> 수령한 영상과 구글 시트의 데이터를 비교하여 플레이어, 핸드 정보, 보드 카드 등이 모두 일치하는지 면밀히 확인합니다.</span></div></li>
-                <li><i data-lucide="clapperboard" class="step-icon"></i><div><strong>3. 그래픽 작업 및 편집:</strong>
-                    <ul class="mt-2 space-y-2">
-                        <li><span><strong>- 데이터 적용:</strong> 검증된 구글 시트 데이터를 Poker UI 그래픽 템플릿에 정확히 입력합니다.</span></li>
-                        <li><span><strong>- 그래픽 완성 및 결합:</strong> 데이터가 적용된 Poker UI 그래픽을 완성하고, 해당 그래픽을 촬영 영상 위에 결합(오버레이)합니다.</span></li>
-                        <li><span><strong>- 컷 편집:</strong> 불필요한 부분을 잘라내고, 인/아웃점 가이드를 참고하여 영상의 흐름을 다듬습니다.</span></li>
-                    </ul>
-                </div></li>
-                 <li><i data-lucide="film" class="step-icon"></i><div><strong>4. 최종 작업 및 전달:</strong><span> 모든 편집이 완료된 콘텐츠를 최종 포맷으로 출력(렌더링)하고, 완성본을 디렉터 또는 최종 검수자에게 전달합니다.</span></div></li>
-            </ul>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="film"></i></div>
+                <div class="detail-step-content">
+                    <strong>4. 편집 작업</strong>
+                    <div class="space-y-2">
+                        <p><strong>- 그래픽 완성 및 결합:</strong> 데이터가 적용된 Poker UI 그래픽을 완성하고, 해당 그래픽을 촬영 영상 위에 결합(오버레이)합니다.</p>
+                        <p><strong>- 컷 편집:</strong> 불필요한 부분을 잘라내고, 인/아웃점 가이드를 참고하여 영상의 흐름을 다듬습니다.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="detail-designer">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="pencil-ruler" class="step-icon"></i><div><strong>1. 에셋 제작:</strong><span> 방송 컨셉에 맞춰 카드, 칩, 선수 정보창, 베팅 금액 등 Poker UI 그래픽에 필요한 모든 시각적 에셋을 디자인하고 제작합니다.</span></div></li>
-                <li><i data-lucide="layout-template" class="step-icon"></i><div><strong>2. 시스템 설계:</strong><span> 후반 편집자가 구글 시트의 데이터를 손쉽게 연동하고 수정할 수 있도록 에프터이펙트 등의 툴을 사용하여 모션 그래픽 템플릿(MOGRT) 또는 유사한 형태의 시스템을 설계합니다.</span></div></li>
-                <li><i data-lucide="package-check" class="step-icon"></i><div><strong>3. 패키지 전달:</strong><span> 완성된 모든 그래픽 에셋과 템플릿을 하나의 패키지로 정리하여, 프리 프로덕션 단계에서 **후반 편집자**에게 전달합니다.</span></div></li>
-            </ul>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="pencil-ruler"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 에셋 제작</strong>
+                    <p>방송 컨셉에 맞춰 카드, 칩, 선수 정보창, 베팅 금액 등 Poker UI 그래픽에 필요한 모든 시각적 에셋을 디자인하고 제작합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="layout-template"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 시스템 설계</strong>
+                    <p>후반 편집자가 구글 시트의 데이터를 손쉽게 연동하고 수정할 수 있도록 에프터이펙트 등의 툴을 사용하여 모션 그래픽 템플릿(MOGRT) 또는 유사한 형태의 시스템을 설계합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="package-check"></i></div>
+                <div class="detail-step-content">
+                    <strong>3. 패키지 전달</strong>
+                    <p>완성된 모든 그래픽 에셋과 템플릿을 하나의 패키지로 정리하여, 프리 프로덕션 단계에서 <strong>후반 편집자</strong>에게 전달합니다.</p>
+                </div>
+            </div>
         </div>
         <div id="detail-tech">
-            <h4>상세 워크플로우</h4>
-            <ul>
-                <li><i data-lucide="scan-line" class="step-icon"></i><div><strong>1. 네트워크 환경 분석:</strong><span> 대회 시작 전, 현장의 네트워크 상태(유선/무선 속도, 신호 강도, 안정성)를 사전에 면밀히 분석합니다.</span></div></li>
-                <li><i data-lucide="router" class="step-icon"></i><div><strong>2. 전용 라인 확보:</strong><span> 자동화 워크플로우(클라우드 업로드 등)에 필요한 최소 속도인 10Mbps 이상을 안정적으로 보장하는 유/무선 네트워크 환경을 구축합니다. 필요시 별도의 통신사와 협의하여 전용 회선을 설치합니다.</span></div></li>
-                <li><i data-lucide="share-2" class="step-icon"></i><div><strong>3. 정보 공유 및 지원:</strong><span> 구축된 네트워크 정보(Wi-Fi 이름/비밀번호, 유선 포트 위치 등)를 **현장 PD팀**에 명확히 공유하고, 운영 중 발생할 수 있는 네트워크 문제를 지속적으로 모니터링하고 지원합니다.</span></div></li>
-            </ul>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="scan-line"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>1. 네트워크 환경 분석</strong>
+                    <p>대회 시작 전, 현장의 네트워크 상태(유선/무선 속도, 신호 강도, 안정성)를 사전에 면밀히 분석합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="router"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>2. 전용 라인 확보</strong>
+                    <p>자동화 워크플로우(클라우드 업로드 등)에 필요한 최소 속도인 10Mbps 이상을 안정적으로 보장하는 유/무선 네트워크 환경을 구축합니다. 필요시 별도의 통신사와 협의하여 전용 회선을 설치합니다.</p>
+                </div>
+            </div>
+            <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="share-2"></i></div>
+                <div class="detail-step-content">
+                    <strong>3. 정보 공유 및 지원</strong>
+                    <p>구축된 네트워크 정보(Wi-Fi 이름/비밀번호, 유선 포트 위치 등)를 <strong>현장 PD팀</strong>에 명확히 공유하고, 운영 중 발생할 수 있는 네트워크 문제를 지속적으로 모니터링하고 지원합니다.</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         lucide.createIcons();
-
-        function switchTab(tabId) {
-            const tabs = ['auto', 'manual'];
-            tabs.forEach(id => {
-                const button = document.getElementById(`tab-${id}`);
-                const content = document.getElementById(`content-${id}`);
-                if (id === tabId) {
-                    button.classList.add('active');
-                    content.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                    content.classList.remove('active');
-                }
-            });
-        }
-        
-        function switchCompositionTab(tabId) {
-            const tabs = ['1cam', '2cam'];
-            tabs.forEach(id => {
-                const button = document.getElementById(`comp-tab-${id}`);
-                const content = document.getElementById(`comp-content-${id}`);
-                if (id === tabId) {
-                    button.classList.add('active');
-                    content.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                    content.classList.remove('active');
-                }
-            });
-        }
 
         // --- Smart Popup Positioning Script ---
         document.addEventListener('DOMContentLoaded', () => {
@@ -969,47 +903,47 @@
                     popup.style.left = `${idealLeft - cardRect.left}px`;
                 });
             });
-        });
-
-        // --- Modal Script ---
-        const modal = document.getElementById('workflow-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalBody = document.getElementById('modal-body');
-        const modalCloseBtn = document.getElementById('modal-close');
-        const roleCards = document.querySelectorAll('[data-role]');
-
-        function openModal(role) {
-            const detailContent = document.getElementById(`detail-${role}`);
-            const cardTitle = document.querySelector(`[data-role=${role}] .step-card h3`).textContent;
-            
-            if (detailContent) {
-                modalTitle.textContent = `${cardTitle} 상세 워크플로우`;
-                modalBody.innerHTML = detailContent.innerHTML;
-                lucide.createIcons(); // Re-render icons inside modal
-                modal.classList.add('active');
+        
+            // --- Modal Script ---
+            const modal = document.getElementById('workflow-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const modalCloseBtn = document.getElementById('modal-close');
+            const roleCards = document.querySelectorAll('[data-role]');
+    
+            function openModal(role) {
+                const detailContent = document.getElementById(`detail-${role}`);
+                const cardTitle = document.querySelector(`[data-role=${role}] .step-card h3`).textContent;
+                
+                if (detailContent) {
+                    modalTitle.textContent = `${cardTitle} 상세 워크플로우`;
+                    modalBody.innerHTML = detailContent.innerHTML;
+                    lucide.createIcons(); // Re-render icons inside modal
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
             }
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-
-        roleCards.forEach(card => {
-            card.addEventListener('click', () => {
-                openModal(card.dataset.role);
+    
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore background scrolling
+            }
+    
+            roleCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    openModal(card.dataset.role);
+                });
             });
-        });
-
-        modalCloseBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
+    
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
         });
 
     </script>
 </body>
 </html>
-" selected, I want you to make the following changes to it.
-I want you to add a new file named `rehearsal_results.html` and move the relevant sections to it. The sections that need to be moved are 'Team Composition', 'Workflow', and 'Strategy by Stage'.
 
