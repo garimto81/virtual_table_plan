@@ -288,7 +288,7 @@
                 <h1 class="text-4xl md:text-5xl font-black text-stone-800">버추얼 테이블 프로젝트</h1>
                 <p class="mt-4 text-lg text-stone-600">인터랙티브 현장 운영 가이드라인</p>
             </div>
-            <a href="https://garimto81.github.io/virtual_table_rehearsal" class="mt-6 md:mt-0 inline-flex items-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
+            <a href="https://garimto81.github.io/virtual_table_rehearsal" target="_blank" rel="noopener noreferrer" class="mt-6 md:mt-0 inline-flex items-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
                 <i data-lucide="clipboard-check" class="w-5 h-5 mr-2"></i>
                 리허설 결과 및 상세 프로세스 보기
             </a>
@@ -584,7 +584,12 @@
                     <div class="space-y-4">
                         <div class="sub-step-card">
                             <strong>파일 번호 공유</strong>
-                            <p>핸드 촬영 종료 후, 카메라에 표시된 파일 번호를 <strong>데이터 매니저</strong>에게 보여주고, 데이터 매니저는 이를 앱에 기록합니다.</p>
+                            <p>핸드 촬영 종료 후, 카메라에 표시된 파일 번호를 데이터 매니저에게 전달하여 앱에 기록합니다. 파일명은 아래 규칙을 따릅니다.</p>
+                            <div class="mt-3 pt-3 border-t border-slate-200">
+                                <p class="font-semibold text-slate-700 text-sm">카메라 맨 파일 규칙:</p>
+                                <p class="text-sm mt-1 text-slate-600">cam(카메라 순서 대문자 알파벳)(카메라맨에 귀속된 메모리 카드 순서 소문자 알파벳)일련번호</p>
+                                <p class="mt-2 text-sm"><strong>예시:</strong> <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAa0001</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAb0003</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camBa0011</code></p>
+                            </div>
                         </div>
                         <div class="sub-step-card">
                             <strong>메모리 카드 교체 (분기)</strong>
@@ -818,7 +823,6 @@
                         <p><strong>- 그래픽 완성 및 결합:</strong> 데이터가 적용된 Poker UI 그래픽을 완성하고, 해당 그래픽을 촬영 영상 위에 결합(오버레이)합니다.</p>
                         <p><strong>- 컷 편집:</strong> 불필요한 부분을 잘라내고, 인/아웃점 가이드를 참고하여 영상의 흐름을 다듬습니다.</p>
                     </div>
-                </div>
                                             <div class="w-full h-full bg-slate-800 overflow-hidden">
                                 <img src="https://github.com/garimto81/virtual_table_plan/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20225035.png?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시">
                             </div>
@@ -954,4 +958,5 @@
     </script>
 </body>
 </html>
+
 
