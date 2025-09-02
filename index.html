@@ -370,7 +370,6 @@
                             <div class="flex flex-col items-center space-y-2">
                                 <div class="flex space-x-4">
                                     <div class="flow-step">데이터 생성(App)</div>
-                                    <div class="flow-step">인/아웃점 가이드 수령</div>
                                 </div>
                                 <i data-lucide="arrow-down" class="flow-arrow w-4 h-4"></i>
                                 <div class="flow-step">구글 시트에 통합 기록</div>
@@ -488,11 +487,11 @@
                 <h3 class="text-xl font-bold text-center text-stone-700 mb-8">추천 장비</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(14).png?raw=true" alt="고프로 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=GoPro';">
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="고프로 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=GoPro';">
                         <p class="text-center text-sm text-stone-600 mt-2 font-medium">고프로 시리즈</p>
                     </div>
                     <div>
-                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f79b79143119a859898dae9521@ultra.png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-stone-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e7e5e4/78716c?text=DJI+Action';">
+                        <img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f73f9b79143119a859898dae9521@ultra.png?raw=true';">
                         <p class="text-center text-sm text-stone-600 mt-2 font-medium">DJI 액션 시리즈</p>
                     </div>
                     <div>
@@ -694,37 +693,61 @@
                 <div class="detail-step-icon"><i data-lucide="keyboard"></i></div>
                 <div class="detail-step-connector"></div>
                 <div class="detail-step-content">
-                    <strong>1. 데이터 생성 (On-site)</strong>
-                    <p>전용 앱을 사용하여 현장에서 발생하는 모든 액션(베팅, 폴드 등), 보드 카드, 팟 사이즈를 실시간으로 기록합니다.</p>
-                     <div class="mt-4 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl">
+                    <strong>1. 데이터 생성 (전용 앱 사용)</strong>
+                    <p>전용 앱을 통해 아래 순서대로 핸드 정보를 기록하고 최종 전송합니다. (날짜는 자동으로 처리됩니다.)</p>
+                    <div class="mt-4 pt-4 border-t">
+                        <h4 class="font-bold text-lg text-slate-700 mb-2">A. 핸드 기본 정보 설정</h4>
+                        <div class="space-y-3">
+                            <div class="sub-step-card">
+                                <p><strong>1. 테이블 선택:</strong> <br> 시트에 저장된 테이블 목록에서 핸드가 진행된 테이블을 선택합니다. <br><em>(예: `T02` 선택)</em></p>
+                            </div>
+                            <div class="sub-step-card">
+                                <p><strong>2. 플레이어 선택:</strong> <br> 자동으로 호출된 목록에서 핸드에 참여한 플레이어를 순서대로 선택합니다.<br><em>(예: 'Jaewon', 'Trey', 'David' 순서로 선택)</em></p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="mt-4 pt-4 border-t">
+                        <h4 class="font-bold text-lg text-slate-700 mb-2">B. 액션 및 보드 기록</h4>
+                        <div class="space-y-3">
+                            <div class="sub-step-card">
+                                <p><strong>3. 스트릿별 액션 기록:</strong> <br> Preflop부터 River까지, 핸드 진행 상황에 따라 모든 액션(Bet, Call, Fold 등)과 커뮤니티 카드를 순서대로 정확히 기록합니다. <br><em>(예: Jaewon `BET 5000`)</em></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t">
+                        <h4 class="font-bold text-lg text-slate-700 mb-2">C. 핸드 마무리 및 전송</h4>
+                        <div class="space-y-3">
+                            <div class="sub-step-card">
+                                <p><strong>4. 홀 카드 입력 (쇼다운 시):</strong> <br> 쇼다운이 발생한 경우, 오픈된 플레이어의 홀 카드를 정확히 입력합니다.<br><em>(예: 'Jaewon' 선택 후 `10h 9d` 입력)</em></p>
+                            </div>
+                             <div class="sub-step-card">
+                                <p><strong>5. 최종 승자 선택:</strong> <br> 핸드가 종료되면 최종 승자를 선택합니다. 승자 선택 시, 팟 분배가 자동으로 처리됩니다. <br><em>(예: 'Jaewon' 선택)</em></p>
+                            </div>
+                             <div class="sub-step-card">
+                                <p><strong>6. 촬영 정보 입력 (최종 단계):</strong> <br> 카메라 맨에게 전달받은 <strong>영상 파일명</strong>을 입력하고, 그래픽이 시작되어야 할 <strong>스트릿 버튼</strong>(Preflop/Flop/Turn/River)을 클릭하여 시작 지점을 표시합니다. <br><em>(예: 파일명 <code class="bg-slate-200 text-slate-800 px-1 py-0.5 rounded">camAa0001</code>, 시작 지점 `Flop` 클릭)</em></p>
+                            </div>
+                            <div class="sub-step-card">
+                                <p><strong>7. 시트 전송:</strong> <br> 모든 정보 입력이 완료되었는지 최종 확인 후, '시트에 전송' 버튼을 눌러 데이터를 마스터 구글 시트로 전송합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="mt-6 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl">
                         <div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden">
                              <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="Data entry app interface on a smartphone">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="ear"></i></div>
-                <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>2. 정보 수령</strong>
-                    <p>카메라 맨으로부터 촬영된 핸드의 파일 번호와 편집에 필요한 인/아웃점 가이드를 구두 또는 메신저로 전달받습니다.</p>
-                </div>
-            </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="file-spreadsheet"></i></div>
-                 <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>3. 데이터 통합 및 공유</strong>
-                    <p>앱에 기록한 데이터와 카메라 맨에게 받은 정보를 마스터 구글 시트에 정확하게 통합하여 기록하고, 해당 시트 링크를 <strong>후반팀</strong>에 실시간으로 공유합니다.</p>
-                </div>
-            </div>
              <div class="detail-step">
                 <div class="detail-step-icon"><i data-lucide="server"></i></div>
                 <div class="detail-step-content">
-                    <strong>4. 메모리 카드 관리 (원격 워크플로우 시)</strong>
-                     <div class="sub-step-card">
-                        <strong>후반 편집자가 본사에 있는 경우 (Case 2)</strong>
+                    <strong>2. 메모리 카드 관리 (상황별)</strong>
+                     <div class="sub-step-card mt-0">
+                        <strong>Case 1. 후반 편집자가 현장에 있는 경우:</strong>
+                        <p>메모리 카드 순환 및 관리는 <span class="font-bold text-emerald-700">카메라 맨</span>이 직접 처리하므로, 데이터 매니저는 카드 전달 업무를 수행하지 않습니다.</p>
+                    </div>
+                    <div class="sub-step-card mt-4">
+                        <strong>Case 2. 후반 편집자가 본사에 있는 경우:</strong>
                         <p>카메라 맨으로부터 메모리 카드를 수령하여 데이터 스테이션으로 이동, 데이터 전송을 완료한 후 다시 카메라 맨에게 안전하게 반환하는 역할을 수행합니다.</p>
                          <div class="mt-4 p-4 bg-slate-100 rounded-lg border border-slate-200">
                              <h4 class="font-bold text-center mb-6 text-slate-800">데이터 매니저 동선</h4>
@@ -771,13 +794,21 @@
         </div>
         <div id="detail-editor">
              <div class="detail-step">
+                <div class="detail-step-icon"><i data-lucide="package"></i></div>
+                <div class="detail-step-connector"></div>
+                <div class="detail-step-content">
+                    <strong>0. GFX 패키지 적용</strong>
+                    <p>프리 프로덕션 단계에서 전달받은 그래픽 패키지를 GFX 시스템에 적용합니다.</p>
+                </div>
+            </div>
+             <div class="detail-step">
                 <div class="detail-step-icon"><i data-lucide="folder-down"></i></div>
                 <div class="detail-step-connector"></div>
                 <div class="detail-step-content">
                     <strong>1. 자료 수령</strong>
-                     <p>(프로덕션) 슬랙에 새로운 핸드 등록 확인</p>
+                     <p>(프로덕션) 슬랙에 새로운 핸드 등록 알림을 확인합니다.</p>
                      <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20222904.png?raw=true" class="mt-2 rounded-lg border" alt="Slack 알림 예시">
-                     <p class="mt-4">앱으로 불러오기를 하여 핸드 정보 확인</p>
+                     <p class="mt-4">앱(PC 버전 포함)으로 불러오기를 하여 핸드 정보를 확인합니다.</p>
                       <div class="mt-4 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl">
                         <div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden">
                              <img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시">
@@ -806,7 +837,7 @@
                         <li>헤즈업 정보만으로 필요한 스트릿(Flop, Turn, River)까지 처리합니다.</li>
                         <li>핸드 시작 전, 무작위 포지션의 두 플레이어 정보와 버튼 위치만 먼저 정합니다.</li>
                         <li>앱의 위쪽에 있는 선수가 액션이 먼저 진행됩니다.</li>
-                        <li>'첵/콜' 또는 '첵/첵'으로 넘어가는 스트릿은 앱에 기록된대로 신속하게 처리합니다.</li>
+                        <li>핸드에서 지정된 스트릿까지는 첵콜로 신속하게 넘어갑니다 (단, 팟사이즈는 신경써서 조절합니다).</li>
                     </ul>
                         <div class="mt-4 max-w-xs mx-auto shadow-xl">
                             <div class="w-full h-full bg-slate-800 overflow-hidden">
@@ -829,54 +860,8 @@
             </div>
         </div>
         <div id="detail-designer">
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="pencil-ruler"></i></div>
-                <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>1. 에셋 제작</strong>
-                    <p>방송 컨셉에 맞춰 카드, 칩, 선수 정보창, 베팅 금액 등 Poker UI 그래픽에 필요한 모든 시각적 에셋을 디자인하고 제작합니다.</p>
-                </div>
-            </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="layout-template"></i></div>
-                <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>2. 시스템 설계</strong>
-                    <p>후반 편집자가 구글 시트의 데이터를 손쉽게 연동하고 수정할 수 있도록 에프터이펙트 등의 툴을 사용하여 모션 그래픽 템플릿(MOGRT) 또는 유사한 형태의 시스템을 설계합니다.</p>
-                </div>
-            </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="package-check"></i></div>
-                <div class="detail-step-content">
-                    <strong>3. 패키지 전달</strong>
-                    <p>완성된 모든 그래픽 에셋과 템플릿을 하나의 패키지로 정리하여, 프리 프로덕션 단계에서 <strong>후반 편집자</strong>에게 전달합니다.</p>
-                </div>
-            </div>
         </div>
         <div id="detail-tech">
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="scan-line"></i></div>
-                <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>1. 네트워크 환경 분석</strong>
-                    <p>대회 시작 전, 현장의 네트워크 상태(유선/무선 속도, 신호 강도, 안정성)를 사전에 면밀히 분석합니다.</p>
-                </div>
-            </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="router"></i></div>
-                <div class="detail-step-connector"></div>
-                <div class="detail-step-content">
-                    <strong>2. 전용 라인 확보</strong>
-                    <p>자동화 워크플로우(클라우드 업로드 등)에 필요한 최소 속도인 10Mbps 이상을 안정적으로 보장하는 유/무선 네트워크 환경을 구축합니다. 필요시 별도의 통신사와 협의하여 전용 회선을 설치합니다.</p>
-                </div>
-            </div>
-            <div class="detail-step">
-                <div class="detail-step-icon"><i data-lucide="share-2"></i></div>
-                <div class="detail-step-content">
-                    <strong>3. 정보 공유 및 지원</strong>
-                    <p>구축된 네트워크 정보(Wi-Fi 이름/비밀번호, 유선 포트 위치 등)를 <strong>현장 PD팀</strong>에 명확히 공유하고, 운영 중 발생할 수 있는 네트워크 문제를 지속적으로 모니터링하고 지원합니다.</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -958,5 +943,4 @@
     </script>
 </body>
 </html>
-
 
