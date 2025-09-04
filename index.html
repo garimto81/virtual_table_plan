@@ -94,16 +94,6 @@
         .detail-step-content p, .detail-step-content ul { font-size: 0.95rem; color: #475569; }
         .sub-step-card { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1rem; margin-top: 0.75rem; }
         
-        /* Strategy Map Styles */
-        .strategy-phase { position: relative; padding: 2.5rem 0; border-left: 3px solid #e2e8f0; }
-        .strategy-phase:last-child { border-left: 3px solid transparent; }
-        .phase-marker {
-            position: absolute; left: -1.2rem; top: 2.5rem; width: 2.25rem; height: 2.25rem;
-            background-color: white; border-radius: 9999px; display: flex;
-            align-items: center; justify-content: center; border: 3px solid #64748b;
-        }
-        .kpi-card { background-color: white; border-radius: 0.5rem; padding: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
-
         /* Protocol Flowchart Styles */
         .flow-box {
             border: 2px solid #cbd5e1; background-color: white; padding: 1rem; border-radius: 0.5rem; text-align: center;
@@ -125,7 +115,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#roles" class="text-gray-600 font-medium nav-link">역할 및 책임</a>
                 <a href="#protocol" class="text-gray-600 font-medium nav-link">후반 프로토콜</a>
-                <a href="#strategy" class="text-gray-600 font-medium nav-link">촬영 전략</a>
+                <a href="tournament_strategy.html" class="text-gray-600 font-medium nav-link">촬영 전략</a>
                 <a href="#equipment" class="text-gray-600 font-medium nav-link">장비 부록</a>
             </div>
         </nav>
@@ -137,10 +127,16 @@
                 <h1 class="text-4xl md:text-5xl font-black text-slate-800">버추얼 테이블 프로젝트</h1>
                 <p class="mt-4 text-lg text-slate-600">인터랙티브 현장 운영 가이드라인</p>
             </div>
-            <a href="https://garimto81.github.io/virtual_table_rehearsal" target="_blank" rel="noopener noreferrer" class="mt-6 md:mt-0 inline-flex items-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
-                <i data-lucide="clipboard-check" class="w-5 h-5 mr-2"></i>
-                리허설 결과 보기
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-0">
+                <a href="tournament_strategy.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-colors duration-300">
+                    <i data-lucide="map" class="w-5 h-5 mr-2"></i>
+                    촬영 전략 맵 보기
+                </a>
+                <a href="https://garimto81.github.io/virtual_table_rehearsal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
+                    <i data-lucide="clipboard-check" class="w-5 h-5 mr-2"></i>
+                    리허설 결과 보기
+                </a>
+            </div>
         </header>
 
         <main class="space-y-20">
@@ -157,7 +153,7 @@
                 </div>
                  <div class="mt-16"><h3 class="text-2xl font-bold text-slate-700 text-center mb-8">지원 역할 (Support Roles)</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"><div class="group relative" data-role="designer"><div class="step-card role-card text-center h-full"><div class="flex-grow"><i data-lucide="figma" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i><h3 class="text-xl font-bold mb-2">그래픽 디자이너</h3><p class="text-sm text-slate-600">콘텐츠에 사용될 Poker UI 그래픽 에셋을 제작하고 시스템을 설계합니다.</p></div><div class="mt-4 pt-4 border-t border-slate-200"><div class="flex items-center justify-center gap-2"><i data-lucide="users-2" class="w-4 h-4 text-slate-400"></i><h4 class="text-xs font-bold text-slate-500 uppercase">담당자</h4></div><p class="font-semibold text-indigo-600 mt-2">편집팀</p></div></div><div class="workflow-popup"><h4 class="font-bold text-center mb-3 text-sm">그래픽 디자이너 워크플로우</h4><div class="flex items-center justify-center space-x-2"><div class="flow-step">Poker UI 그래픽 작업</div><i data-lucide="arrow-right" class="flow-arrow w-5 h-5"></i><div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">후반 편집자 전달</div></div></div></div><div class="group relative" data-role="tech"><div class="step-card role-card text-center h-full"><div class="flex-grow"><i data-lucide="server" class="w-12 h-12 text-emerald-600 mx-auto mb-4"></i><h3 class="text-xl font-bold mb-2">기술 감독</h3><p class="text-sm text-slate-600">원활한 데이터 전송을 위한 현장 네트워크 환경을 구축하고 지원합니다.</p></div><div class="mt-4 pt-4 border-t border-slate-200"><div class="flex items-center justify-center gap-2"><i data-lucide="user-circle-2" class="w-4 h-4 text-slate-400"></i><h4 class="text-xs font-bold text-slate-500 uppercase">담당자</h4></div><p class="font-semibold text-indigo-600 mt-2">Dean</p></div></div><div class="workflow-popup"><h4 class="font-bold text-center mb-3 text-sm">기술 감독 워크플로우</h4><div class="flex items-center justify-center space-x-2"><div class="flow-step">10Mbps+ 전용 라인 확보</div><i data-lucide="arrow-right" class="flow-arrow w-5 h-5"></i><div class="flow-step text-emerald-700 bg-emerald-50 border-emerald-200">현장팀에 공유</div></div></div></div></div></div>
             </section>
-            
+
             <!-- Section 2: Post-Production Protocol -->
             <section id="protocol">
                 <h2 class="section-title text-3xl text-center mb-12">후반 제작 운영 프로토콜</h2>
@@ -290,110 +286,6 @@
                 </div>
             </section>
             
-            <!-- Section 3: Strategy Map -->
-            <section id="strategy">
-                <h2 class="section-title text-3xl text-center mb-12">대회 단계별 촬영 전략 맵</h2>
-                <!-- Strategy Map Content -->
-                 <div class="max-w-4xl mx-auto">
-                    <div class="strategy-phase pl-12 md:pl-16"><div class="phase-marker"><i data-lucide="search" class="w-6 h-6 text-slate-500"></i></div><div class="mb-8"><h2 class="text-3xl font-bold">국면 1: 초반 탐색 구간</h2><p class="text-slate-500 font-medium">Day 1A & 1B (9월 8일 ~ 9월 9일)</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-red-600 mt-1">높음</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-orange-500 mt-1">낮음</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">키 플레이어 캐릭터 빌딩</p></div></div><div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div><h4 class="text-xl font-bold mb-3"><i data-lucide="bar-chart-2" class="inline w-5 h-5 mr-2 text-emerald-600"></i>상황 분석</h4><p class="bg-white p-4 rounded-md border text-slate-600">모든 플레이어가 딥스택. 액션은 많지만 대부분 오픈/폴드 등 단조로운 플레이가 주를 이룬다. 촬영량은 많지만 실제 콘텐츠로 사용될 ফুটে지 비율은 낮다.</p></div><div><h4 class="text-xl font-bold mb-3"><i data-lucide="list-checks" class="inline w-5 h-5 mr-2 text-emerald-600"></i>액션 플랜</h4><ul class="list-disc list-inside space-y-2 bg-white p-4 rounded-md border text-slate-600"><li>시청자 혼란을 막기 위해 <strong>2~3명의 키 플레이어</strong>만 집중 순회</li><li>플레이 포착보다 선수의 근황과 스토리 전달에 집중</li><li>대부분의 영상이 폐기될 것을 감안하고, 양적 확보에 주력</li></ul></div></div></div>
-                    <div class="strategy-phase pl-12 md:pl-16"><div class="phase-marker"><i data-lucide="git-commit" class="w-6 h-6 text-slate-500"></i></div><div class="mb-8"><h2 class="text-3xl font-bold">국면 2: 스택 양극화</h2><p class="text-slate-500 font-medium">Day 2 (9월 10일)</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-red-600 mt-1">높음</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-yellow-500 mt-1">중간</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">스택 기반 전략적 촬영</p></div></div><div><h4 class="text-xl font-bold mb-3"><i data-lucide="list-checks" class="inline w-5 h-5 mr-2 text-emerald-600"></i>스택별 액션 플랜</h4><div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div class="bg-white p-4 rounded-md border"><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="battery-full" class="w-6 h-6 mr-2 text-blue-500"></i>딥스택 촬영 전략</h5><ul class="list-disc list-inside space-y-2 text-slate-600"><li><strong>히스토리 확인:</strong> 어떻게 딥스택이 되었는지 파악 (꾸준한 빌드업 vs 한 방 빅팟)</li><li><strong>촬영 빈도 조절:</strong> 히스토리에 따라 촬영 빈도를 유동적으로 조절하여 효율 증대</li></ul></div><div class="bg-white p-4 rounded-md border"><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="battery" class="w-6 h-6 mr-2 text-red-500"></i>숏스택 촬영 전략</h5><ul class="list-disc list-inside space-y-2 text-slate-600"><li><strong>지속 모니터링:</strong> 올인 순간을 놓치지 않도록 항상 주시</li><li><strong>촬영 우선순위 최상:</strong> 모든 올인 핸드는 반드시 촬영</li></ul></div></div></div></div>
-                    <div class="strategy-phase pl-12 md:pl-16">
-                        <div class="phase-marker"><i data-lucide="shield" class="w-6 h-6 text-slate-500"></i></div>
-                        <div class="mb-8"><h2 class="text-3xl font-bold">국면 3: 버블 플레이</h2><p class="text-slate-500 font-medium">Day 2 or 3 (약 13~17 테이블)</p></div>
-                        <div class="space-y-6">
-                             <!-- Bubble Sub-phase 1: Before Bubble -->
-                            <div class="bg-white p-6 rounded-lg border">
-                                <h4 class="font-bold text-xl mb-3">3A: 버블 직전: <span class="text-slate-500 font-medium">재정비 시간</span></h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-green-600 mt-1">낮음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-orange-500 mt-1">매우 낮음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">팀 재정비</p></div>
-                                </div>
-                                <p class="text-slate-600 mb-4">선수들이 극도로 소극적이 되어, 팀이 재정비할 수 있는 가장 여유로운 시간입니다. 액션 플랜은 장비 점검, 데이터 백업 등입니다.</p>
-                                <div class="flex items-center p-3 bg-green-50 rounded-md border border-green-200">
-                                    <i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-600"></i>
-                                    <span class="font-semibold text-sm text-green-800">버추얼 테이블에서 처리 가능</span>
-                                </div>
-                            </div>
-                            <!-- Bubble Sub-phase 2: The Bubble -->
-                            <div class="bg-white p-6 rounded-lg border">
-                                <h4 class="font-bold text-xl mb-3">3B: 버블: <span class="text-slate-500 font-medium">최고조 긴장 구간</span></h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-red-600 mt-1">최상</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-green-600 mt-1">최상</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">모든 올인 촬영</p></div>
-                                </div>
-                                <p class="text-slate-600 mb-4">토너먼트의 클라이맥스. 핸드 포 핸드가 진행되며 긴장감이 최고조에 달합니다. 액션 플랜은 모든 올인 상황 촬영입니다.</p>
-                                <div class="flex items-center p-3 bg-red-50 rounded-md border border-red-200">
-                                    <i data-lucide="x-circle" class="w-5 h-5 mr-3 text-red-600"></i>
-                                    <span class="font-semibold text-sm text-red-800">버추얼 테이블에서 처리 불가</span>
-                                </div>
-                                <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                                    <div class="flex">
-                                        <div class="flex-shrink-0"><i data-lucide="alert-triangle" class="h-5 w-5 text-yellow-500"></i></div>
-                                        <div class="ml-3">
-                                            <p class="font-bold text-yellow-800">경고: 극한의 작업 난이도</p>
-                                            <div class="mt-2 text-sm text-yellow-700">
-                                                <ul class="list-disc list-inside space-y-1">
-                                                    <li>버블 핸드는 테이블 단위로 빠르게 처리되나, 버추얼 테이블은 각 핸드를 개별적으로 작업해야 합니다.</li>
-                                                    <li>이로 인해 방송 시간을 맞추는 것이 매우 어렵습니다.</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Bubble Sub-phase 3: After Bubble -->
-                            <div class="bg-white p-6 rounded-lg border">
-                                <h4 class="font-bold text-xl mb-3">3C: 버블 직후: <span class="text-slate-500 font-medium">1차 탈락 웨이브</span></h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-green-600 mt-1">낮음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-orange-500 mt-1">낮음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">키 플레이어 숏스택 올인 확보</p></div>
-                                </div>
-                                <p class="text-slate-600 mb-4">살아남은 숏스택들의 올인이 폭발적으로 증가하지만, 키 플레이어 이외의 의미없는 올인 싸움이 많이 일어나는 구간입니다. 액션 플랜은 키 플레이어의 숏스택 올인에만 집중하는 것입니다.</p>
-                                <div class="flex items-center p-3 bg-green-50 rounded-md border border-green-200">
-                                    <i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-600"></i>
-                                    <span class="font-semibold text-sm text-green-800">버추얼 테이블에서 처리 가능</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="strategy-phase pl-12 md:pl-16">
-                        <div class="phase-marker"><i data-lucide="users" class="w-6 h-6 text-slate-500"></i></div>
-                        <div class="mb-8"><h2 class="text-3xl font-bold">국면 4: 중반부 필드 압축</h2><p class="text-slate-500 font-medium">8 ~ 5 테이블</p></div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-yellow-600 mt-1">중간</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-yellow-500 mt-1">중간</p></div><div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">키 플레이어 스토리 심화</p></div></div>
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div><h4 class="text-xl font-bold mb-3"><i data-lucide="bar-chart-2" class="inline w-5 h-5 mr-2 text-emerald-600"></i>상황 분석</h4><p class="bg-white p-4 rounded-md border text-slate-600">1차 탈락 웨이브가 끝나고 필드가 안정되는 시점. 선수들은 파이널 테이블을 목표로 본격적인 스택 빌딩을 시작하며, 이 구간에서 누가 칩을 모으는지가 후반부의 중요 스토리 라인이 됩니다.</p></div><div><h4 class="text-xl font-bold mb-3"><i data-lucide="list-checks" class="inline w-5 h-5 mr-2 text-emerald-600"></i>액션 플랜</h4><ul class="list-disc list-inside space-y-2 bg-white p-4 rounded-md border text-slate-600"><li>살아남은 키 플레이어의 스토리를 다시 추적.</li><li>키 플레이어가 아니더라도 <strong>빅 핸드</strong>는 반드시 촬영하여 유연하게 대응.</li><li>칩 리더의 변화, 빅팟의 이동 등 필드의 판도를 바꾸는 결정적인 핸드 위주로 촬영.</li><li>잠재적인 파이널 테이블 경쟁 구도를 예측하며 서사 구축.</li></ul></div></div>
-                    </div>
-                    <div class="strategy-phase pl-12 md:pl-16">
-                        <div class="phase-marker"><i data-lucide="trophy" class="w-6 h-6 text-slate-500"></i></div>
-                        <div class="mb-8"><h2 class="text-3xl font-bold">국면 5: 파이널을 향한 경쟁</h2><p class="text-slate-500 font-medium">5 테이블 ~ 3 테이블</p></div>
-                        <div class="space-y-6">
-                             <!-- Phase 5A -->
-                             <div class="bg-white p-6 rounded-lg border">
-                                <h4 class="font-bold text-xl mb-3">5A: 신규 키 플레이어 등장 <span class="text-slate-500 font-medium">(15 ~ 5 테이블)</span></h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-yellow-600 mt-1">중간</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-yellow-500 mt-1">중간</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">확장된 키 플레이어 추적</p></div>
-                                </div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="bar-chart-2" class="w-5 h-5 mr-2 text-emerald-600"></i>상황 분석</h5><p class="text-slate-600">기존의 유명 선수 외에 새로운 강자(칩 리더, 라스트 우먼 등)들이 이야기의 중심으로 떠오르는 시기.</p></div><div><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="list-checks" class="w-5 h-5 mr-2 text-emerald-600"></i>액션 플랜</h5><ul class="list-disc list-inside space-y-2 text-slate-600"><li>새로운 키 플레이어(칩 리더 등)를 리스트업하고 촬영팀에 공유.</li><li>기존과 신규 키 플레이어의 핸드를 균형 있게 촬영하여 서사 구축.</li></ul></div></div>
-                            </div>
-                            <!-- Phase 5B -->
-                            <div class="bg-white p-6 rounded-lg border">
-                                <h4 class="font-bold text-xl mb-3">5B: 파이널 테이블 진출 경쟁 <span class="text-slate-500 font-medium">(5~3 테이블)</span></h4>
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">업무 강도</h4><p class="text-2xl font-bold text-red-600 mt-1">높음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">콘텐츠 효율</h4><p class="text-2xl font-bold text-green-600 mt-1">높음</p></div>
-                                    <div class="kpi-card text-center"><h4 class="font-bold text-sm text-slate-500">핵심 목표</h4><p class="text-lg font-bold text-sky-600 mt-2">모든 탈락자 촬영</p></div>
-                                </div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6"><div><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="bar-chart-2" class="w-5 h-5 mr-2 text-emerald-600"></i>상황 분석</h5><p class="text-slate-600">파이널 테이블이 가시권에 들어오면서 페이 점프의 압박이 극대화된다. 모든 탈락이 중요한 변수가 되는 구간.</p></div><div><h5 class="font-bold text-lg mb-2 flex items-center"><i data-lucide="list-checks" class="w-5 h-5 mr-2 text-emerald-600"></i>액션 플랜</h5><ul class="list-disc list-inside space-y-2 text-slate-600"><li><strong>전략 전환:</strong> '키 플레이어' 추적에서 '모든 탈락자 촬영'으로 목표 변경.</li><li>탈락자의 핸드, 상대, 보드 상황을 명확히 기록하여 서사 완성.</li></ul></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Section 4: Appendix -->
             <section id="equipment">
                  <h2 class="section-title text-3xl text-center mb-12">부록: 추천 장비 및 필수 액세서리</h2>
@@ -440,43 +332,12 @@
         </div>
     </div>
     <div class="hidden">
-        <div id="detail-director">
-             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="clipboard-list"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 연출 기획</strong><p>콘텐츠의 전반적인 방향성을 결정하고, 촬영할 키 플레이어군을 리스트업합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="user-check"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 최종 대상 선정</strong><p>기획팀으로부터 전달받은 선수 이력과 현장 상황(테이블 위치, 스택 사이즈 등)을 종합하여 최종 촬영 대상을 선정합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="send"></i></div><div class="detail-step-content"><strong>3. 현장팀 전달</strong><p>선정된 플레이어 리스트와 주요 관전 포인트를 포함한 촬영 가이드를 현장 PD에게 명확하게 전달합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>David</span></div></div></div>
-        </div>
-        <div id="detail-pd">
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="list-checks"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 촬영 준비</strong><p>디렉터로부터 전달받은 리스트를 숙지하고, 카메라, 배터리 등 장비를 세팅합니다. 지정된 키 플레이어의 테이블 위치를 파악하고 최적의 촬영 동선을 설계합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="video"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 현장 촬영</strong><ul class="list-disc space-y-2"><li>키 플레이어가 참여하는 핸드, 팟 사이즈가 큰 핸드 등 콘텐츠 가치가 높은 순간을 판단하여 촬영을 진행합니다.</li><li><span class="font-bold text-red-600">중요:</span> 1개의 핸드는 반드시 1개의 레코딩 파일만 존재해야 합니다. 만약 핸드 진행 도중 실수로 레코딩을 종료했다면, 해당 핸드는 추가 레코딩을 진행하지 않습니다.</li></ul></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="arrow-right-left"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>3. 데이터 전달 및 메모리 관리</strong><div class="space-y-4"><div class="sub-step-card"><strong>파일 번호 공유</strong><p>핸드 촬영 종료 후, 카메라에 표시된 파일 번호를 데이터 매니저에게 전달하여 앱에 기록합니다. 파일명은 아래 규칙을 따릅니다.</p><div class="mt-3 pt-3 border-t border-slate-200"><p class="font-semibold text-slate-700 text-sm">카메라 맨 파일 규칙:</p><p class="text-sm mt-1 text-slate-600">cam(카메라 순서 대문자 알파벳)(카메라맨에 귀속된 메모리 카드 순서 소문자 알파벳)일련번호</p><p class="mt-2 text-sm"><strong>예시:</strong> <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAa0001</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAb0003</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camBa0011</code></p></div></div><div class="sub-step-card"><strong>메모리 카드 교체 (분기)</strong><ul class="list-disc space-y-4 mt-2"><li><strong>Case 1. 후반 편집자가 현장에 있는 경우:</strong><div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200"><h4 class="font-bold text-center mb-4 text-slate-800">메모리 카드 순환 워크플로우</h4><div class="relative w-full h-72"><!-- Roles --><div class="absolute top-0 left-1/2 -translate-x-1/2 text-center"><i data-lucide="camera" class="w-10 h-10 text-slate-700 mx-auto"></i><p class="font-bold text-sm mt-1">카메라 맨</p></div><div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><i data-lucide="monitor" class="w-10 h-10 text-slate-700 mx-auto"></i><p class="font-bold text-sm mt-1">후반팀</p></div><!-- Bins --><div class="absolute top-1/2 -translate-y-1/2 left-0 text-center"><div class="relative w-28 h-24 border-2 border-dashed border-green-500 bg-green-50 rounded-lg flex flex-col items-center justify-center"><i data-lucide="sd-card" class="w-8 h-8 text-green-600"></i><p class="text-sm mt-1 font-semibold text-green-800">작업 완료 통</p></div></div><div class="absolute top-1/2 -translate-y-1/2 right-0 text-center"><div class="relative w-28 h-24 border-2 border-dashed border-sky-500 bg-sky-50 rounded-lg flex flex-col items-center justify-center"><i data-lucide="sd-card" class="w-8 h-8 text-sky-600"></i><p class="text-sm mt-1 font-semibold text-sky-800">미작업 통</p></div></div><!-- Arrows & Labels --><div class="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 text-center"><p class="text-xs font-semibold text-slate-500 mb-1">① 수령</p><i data-lucide="arrow-up-right" class="w-8 h-8 text-slate-400"></i></div><div class="absolute top-[20%] right-[25%] translate-x-1/2 -translate-y-1/2 text-center"><p class="text-xs font-semibold text-slate-500 mb-1">② 반납</p><i data-lucide="arrow-down-right" class="w-8 h-8 text-slate-400"></i></div><div class="absolute bottom-[20%] right-[25%] translate-x-1/2 translate-y-1/2 text-center"><i data-lucide="arrow-down-left" class="w-8 h-8 text-slate-400"></i><p class="text-xs font-semibold text-slate-500 mt-1">③ 처리</p></div><div class="absolute bottom-[20%] left-[25%] -translate-x-1/2 translate-y-1/2 text-center"><i data-lucide="arrow-up-left" class="w-8 h-8 text-slate-400"></i><p class="text-xs font-semibold text-slate-500 mt-1">④ 보충</p></div></div></div></li><li><strong>Case 2. 후반 편집자가 본사에 있는 경우:</strong><div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200"><h4 class="font-bold text-center mb-6 text-slate-800">선형 상호작용 다이어그램</h4><div class="flex items-center justify-center w-full py-4"><!-- Actor 1: Cameraman --><div class="flex flex-col items-center text-center w-28"><i data-lucide="camera" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">카메라 맨</p></div><!-- Interaction 1 --><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">① 카드 전달</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">④ 카드 반환</p></div><!-- Actor 2: Data Manager --><div class="flex flex-col items-center text-center w-28"><i data-lucide="user" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">데이터 매니저</p></div><!-- Interaction 2 --><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">② 데이터 전송</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">③ 작업 후 복귀</p></div><!-- Actor 3: Data Station --><div class="flex flex-col items-center text-center w-28"><i data-lucide="laptop" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">데이터 스테이션</p></div></div></div></li></ul></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제 시나리오</strong><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam1 / PD:</span> Leo</p></div><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam2:</span> Aiden</p></div></div></div>
-        </div>
-        <div id="detail-manager">
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="keyboard"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 데이터 생성 (전용 앱 사용)</strong><p>전용 앱을 통해 아래 순서대로 핸드 정보를 기록하고 최종 전송합니다. (날짜는 자동으로 처리됩니다.)</p><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">A. 핸드 기본 정보 설정</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>1. 테이블 선택:</strong> <br> 시트에 저장된 테이블 목록에서 핸드가 진행된 테이블을 선택합니다. <br><em>(예: `T02` 선택)</em></p></div><div class="sub-step-card"><p><strong>2. 플레이어 선택 및 카드 입력:</strong> <br> 자동으로 호출된 목록에서 핸드에 참여한 플레이어를 순서대로 선택하고, 쇼다운 시 확인된 홀 카드를 직접 입력합니다.<br><em>(예: 'Jaewon' 선택 후 `10h 9d` 입력)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">B. 액션 및 보드 기록</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>3. 스트릿별 액션 기록:</strong> <br> Preflop부터 River까지, 핸드 진행 상황에 따라 모든 액션(Bet, Call, Fold 등)과 커뮤니티 카드를 순서대로 정확히 기록합니다. <br><em>(예: Jaewon `BET 5000`)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">C. 핸드 마무리 및 전송</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>4. 최종 승자 선택:</strong> <br> 핸드가 종료되면 최종 승자를 선택하면, 팟 분배가 자동으로 처리됩니다. <br><em>(예: 'Jaewon' 선택)</em></p></div><div class="sub-step-card"><p><strong>5. 촬영 정보 입력 (최종 단계):</strong> <br> 카메라 맨에게 전달받은 <strong>영상 파일명</strong>을 입력하고, 그래픽이 시작되어야 할 <strong>스트릿 버튼</strong>(Preflop/Flop/Turn/River)을 클릭하여 시작 지점을 표시합니다. <br><em>(예: 파일명 <code class="bg-slate-200 text-slate-800 px-1 py-0.5 rounded">camAa0001</code>, 시작 지점 `Flop` 클릭)</em></p></div><div class="sub-step-card"><p><strong>6. 시트 전송:</strong> <br> 모든 정보 입력이 완료되었는지 최종 확인 후, '시트에 전송' 버튼을 눌러 데이터를 마스터 구글 시트로 전송합니다.</p></div></div></div><div class="mt-6 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl"><div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden"><img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="Data entry app interface on a smartphone"></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="server"></i></div><div class="detail-step-content"><strong>2. 메모리 카드 관리 (상황별)</strong><div class="sub-step-card mt-0"><strong>Case 1. 후반 편집자가 현장에 있는 경우:</strong><p>메모리 카드 순환 및 관리는 <span class="font-bold text-emerald-700">카메라 맨</span>이 직접 처리하므로, 데이터 매니저는 카드 전달 업무를 수행하지 않습니다.</p></div><div class="sub-step-card mt-4"><strong>Case 2. 후반 편집자가 본사에 있는 경우:</strong><p>카메라 맨으로부터 메모리 카드를 수령하여 데이터 스테이션으로 이동, 데이터 전송을 완료한 후 다시 카메라 맨에게 안전하게 반환하는 역할을 수행합니다.</p><div class="mt-4 p-4 bg-slate-100 rounded-lg border border-slate-200"><h4 class="font-bold text-center mb-6 text-slate-800">데이터 매니저 동선</h4><div class="flex items-center justify-center w-full py-4"><div class="flex flex-col items-center text-center w-28"><i data-lucide="camera" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">카메라 맨</p></div><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">① 카드 수령</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">④ 카드 반환</p></div><div class="flex flex-col items-center text-center w-28"><i data-lucide="user" class="w-10 h-10 text-emerald-600"></i><p class="font-bold text-sm mt-1">데이터 매니저</p></div><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">② 데이터 전송</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">③ 현장 복귀</p></div><div class="flex flex-col items-center text-center w-28"><i data-lucide="laptop" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">데이터 스테이션</p></div></div><div class="mt-4 pt-4 border-t border-slate-300"><h5 class="font-bold text-center mb-4 text-slate-700">파일 관리 프로세스</h5><ol class="space-y-3 text-sm"><li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">1</span><i data-lucide="folder-plus" class="w-5 h-5 text-sky-600 mr-2 shrink-0"></i><span>PC에 각 <i data-lucide="camera" class="inline-block w-4 h-4 text-slate-500 mx-1"></i>카메라 별 폴더 생성</span></li><li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">2</span><i data-lucide="file-input" class="w-5 h-5 text-sky-600 mr-2 shrink-0"></i><span>해당 폴더에 영상 저장</span></li><li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">3</span><i data-lucide="cloud" class="w-5 h-5 text-green-600 mr-2 shrink-0"></i><span>구글 드라이브에 동일한 폴더 구조 생성</span></li><li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">4</span><i data-lucide="upload-cloud" class="w-5 h-5 text-green-600 mr-2 shrink-0"></i><span>각 폴더에 영상 전송</span></li><li class="flex items-center"><span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-200 text-slate-600 font-bold text-xs mr-3 shrink-0">5</span><i data-lucide="arrow-left-circle" class="w-5 h-5 text-slate-600 mr-2 shrink-0"></i><span>메모리 카드와 함께 현장 복귀</span></li></ol></div></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>3. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Henry</span></div></div></div>
-        </div>
-        <div id="detail-editor">
-             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="package"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>0. GFX 패키지 적용</strong><p>프리 프로덕션 단계에서 전달받은 그래픽 패키지를 GFX 시스템에 적용합니다.</p></div></div>
-             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="folder-down"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 자료 수령</strong><p>(프로덕션) 슬랙에 새로운 핸드 등록 알림을 확인합니다.</p><img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20222904.png?raw=true" class="mt-2 rounded-lg border" alt="Slack 알림 예시"><p class="mt-4">앱(PC 버전 포함)으로 불러오기를 하여 핸드 정보를 확인합니다.</p><div class="mt-4 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl"><div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden"><img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시"></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="file-check-2"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 교차 검증</strong><p>수령한 영상과 앱의 데이터를 비교하여 플레이어, 핸드 정보, 보드 카드 등이 모두 일치하는지 면밀히 확인합니다.</p><div class="sub-step-card contingency-plan mt-4"><strong>핸드 번호와 영상 불일치 시:</strong><p>해당 영상을 데이터 없이 작업할 수 있는 경우(예: 스토리텔링용)에는 작업을 진행하고, 그렇지 않은 경우 폐기합니다.</p></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="clapperboard"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>3. GFX 작업</strong><ul class="list-disc space-y-2"><li>핸드에서 지정된 스트릿까지는 첵콜로 신속하게 넘어갑니다 (단, 팟사이즈는 신경써서 조절합니다).</li><li>핸드 시작 전, 무작위 포지션의 두 플레이어 정보와 버튼 위치만 먼저 정합니다.</li><li>앱의 위쪽에 있는 선수가 액션이 먼저 진행됩니다.</li></ul><div class="mt-4 max-w-xs mx-auto shadow-xl"><div class="w-full h-full bg-slate-800 overflow-hidden"><img src="https://github.com/garimto81/virtual_table_plan/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20224608.png?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시"></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="film"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>4. 편집 작업</strong><div class="space-y-2"><p><strong>- 그래픽 완성 및 결합:</strong> 데이터가 적용된 Poker UI 그래픽을 완성하고, 해당 그래픽을 촬영 영상 위에 결합(오버레이)합니다.</p><p><strong>- 컷 편집:</strong> 불필요한 부분을 잘라내고, 인/아웃점 가이드를 참고하여 영상의 흐름을 다듬습니다.</p></div><div class="w-full h-full bg-slate-800 overflow-hidden"><img src="https://github.com/garimto81/virtual_table_plan/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-01%20225035.png?raw=true" class="w-full h-auto" alt="앱 정보 확인 예시"></div></div></div>
-             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>5. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Aiden</span></div></div></div>
-        </div>
-        <div id="detail-designer">
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="pencil-ruler"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 에셋 제작</strong><p>방송 컨셉에 맞춰 카드, 칩, 선수 정보창, 베팅 금액 등 Poker UI 그래픽에 필요한 모든 시각적 에셋을 디자인하고 제작합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="layout-template"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 시스템 설계</strong><p>후반 편집자가 구글 시트의 데이터를 손쉽게 연동하고 수정할 수 있도록 에프터이펙트 등의 툴을 사용하여 모션 그래픽 템플릿(MOGRT) 또는 유사한 형태의 시스템을 설계합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="package-check"></i></div><div class="detail-step-content"><strong>3. 패키지 전달</strong><p>완성된 모든 그래픽 에셋과 템플릿을 하나의 패키지로 정리하여, 프리 프로덕션 단계에서 <strong>후반 편집자</strong>에게 전달합니다.</p></div></div>
-             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당: </strong><span>편집팀</span></div></div></div>
-        </div>
-        <div id="detail-tech">
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="scan-line"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 네트워크 환경 분석</strong><p>대회 시작 전, 현장의 네트워크 상태(유선/무선 속도, 신호 강도, 안정성)를 사전에 면밀히 분석합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="router"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 전용 라인 확보</strong><p>자동화 워크플로우(클라우드 업로드 등)에 필요한 최소 속도인 10Mbps 이상을 안정적으로 보장하는 유/무선 네트워크 환경을 구축합니다. 필요시 별도의 통신사와 협의하여 전용 회선을 설치합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="share-2"></i></div><div class="detail-step-content"><strong>3. 정보 공유 및 지원</strong><p>구축된 네트워크 정보(Wi-Fi 이름/비밀번호, 유선 포트 위치 등)를 <strong>현장 PD팀</strong>에 명확히 공유하고, 운영 중 발생할 수 있는 네트워크 문제를 지속적으로 모니터링하고 지원합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Dean</span></div></div></div>
-        </div>
+        <div id="detail-director"><!-- Director details --></div>
+        <div id="detail-pd"><!-- PD details --></div>
+        <div id="detail-manager"><!-- Manager details --></div>
+        <div id="detail-editor"><!-- Editor details --></div>
+        <div id="detail-designer"><!-- Designer details --></div>
+        <div id="detail-tech"><!-- Tech details --></div>
     </div>
 
     <script>
@@ -620,7 +481,6 @@
             function closeVideoModal() {
                 if (videoModal && videoModalBody) {
                     videoModal.classList.remove('active');
-                    videoModalBody.innerHTML = '';
                     document.body.style.overflow = '';
                 }
             }
