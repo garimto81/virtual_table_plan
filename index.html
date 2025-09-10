@@ -76,8 +76,13 @@
             width: 90%; max-width: 640px; position: relative;
             transform: scale(0.95); transition: transform 0.3s ease; margin: 0;
         }
+        .modal-content-lg {
+             max-width: 1280px;
+             height: 90vh;
+             padding: 1rem;
+        }
         .modal-overlay.active .modal-content { transform: scale(1); }
-        .modal-close-btn { position: absolute; top: 1rem; right: 1rem; cursor: pointer; color: #6b7280; }
+        .modal-close-btn { position: absolute; top: 1rem; right: 1rem; cursor: pointer; color: #6b7280; z-index: 60;}
         
         /* Visual Workflow Styles in Modal */
         .detail-step { position: relative; padding-left: 3rem; padding-bottom: 2.5rem; }
@@ -131,6 +136,10 @@
                 <button id="open-overview-modal" class="inline-flex items-center justify-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300">
                     <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
                     프로젝트 개요
+                </button>
+                <button id="open-slides-modal" class="inline-flex items-center justify-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300">
+                    <i data-lucide="presentation" class="w-5 h-5 mr-2"></i>
+                    워크 프로세스
                 </button>
                 <a href="https://garimto81.github.io/virtual_table_flow/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-colors duration-300">
                     <i data-lucide="map" class="w-5 h-5 mr-2"></i>
@@ -366,12 +375,19 @@
             </div>
         </div>
     </div>
+    <div id="slides-modal" class="modal-overlay">
+        <div class="modal-content modal-content-lg">
+            <button id="slides-modal-close" class="modal-close-btn bg-white/50 rounded-full p-1">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <iframe class="w-full h-full" src="" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        </div>
+    </div>
     <div class="hidden">
         <div id="detail-director">
              <div class="detail-step"><div class="detail-step-icon"><i data-lucide="clipboard-list"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 연출 기획</strong><p>콘텐츠의 전반적인 방향성을 결정하고, 촬영할 키 플레이어군을 리스트업합니다.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="user-check"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 최종 대상 선정</strong><p>기획팀으로부터 전달받은 선수 이력과 현장 상황(테이블 위치, 스택 사이즈 등)을 종합하여 최종 촬영 대상을 선정합니다.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="send"></i></div><div class="detail-step-content"><strong>3. 현장팀 전달</strong><p>선정된 플레이어 리스트와 주요 관전 포인트를 포함한 촬영 가이드를 현장 PD에게 명확하게 전달합니다.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>David</span></div></div></div>
         </div>
         <div id="detail-pd">
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="list-checks"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 촬영 준비</strong><p>디렉터로부터 전달받은 리스트를 숙지하고, 카메라, 배터리 등 장비를 세팅합니다. 지정된 키 플레이어의 테이블 위치를 파악하고 최적의 촬영 동선을 설계합니다.</p></div></div>
@@ -589,12 +605,42 @@
             });
         }
 
+        function setupSlidesModal() {
+            const slidesModal = document.getElementById('slides-modal');
+            const openBtn = document.getElementById('open-slides-modal');
+            const closeBtn = document.getElementById('slides-modal-close');
+            const iframe = slidesModal ? slidesModal.querySelector('iframe') : null;
+            const slidesUrl = 'https://docs.google.com/presentation/d/1NvjvXhAkY6E0lYjYzShtDSgnVK81pxWMB9CGjZsr7jU/embed?start=true&loop=false&delayms=3000';
+
+            function openModal() {
+                if(slidesModal && iframe) {
+                    iframe.src = slidesUrl;
+                    slidesModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            function closeModal() {
+                if(slidesModal && iframe) {
+                    slidesModal.classList.remove('active');
+                    iframe.src = ''; // Stop presentation
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if(openBtn) openBtn.addEventListener('click', openModal);
+            if(closeBtn) closeBtn.addEventListener('click', closeModal);
+            if(slidesModal) slidesModal.addEventListener('click', (e) => {
+                if (e.target === slidesModal) closeModal();
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
             setupSmoothScrolling();
             setupHoverPopups();
             setupRoleModal();
             setupVideoModal();
             setupOverviewModal();
+            setupSlidesModal();
         });
     </script>
 </body>
