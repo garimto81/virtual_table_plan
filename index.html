@@ -73,7 +73,8 @@
         .modal-overlay.active { opacity: 1; visibility: visible; }
         .modal-content {
             background-color: white; padding: 2.5rem; border-radius: 0.75rem;
-            width: 90%; max-width: 640px; position: relative;
+            width: 90%; max-width: 800px; /* Increased width for new content */
+            position: relative;
             transform: scale(0.95); transition: transform 0.3s ease; margin: 0;
         }
         .modal-content-lg {
@@ -110,6 +111,46 @@
         
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; margin-bottom: 1rem; border-radius: 0.5rem;}
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        /* Styles for Communication Guide */
+        .signal-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .signal-card.centered {
+            flex-direction: column;
+            text-align: center;
+        }
+        .signal-card.emoji-layout {
+            flex-direction: row;
+            text-align: left;
+            gap: 1.25rem;
+        }
+        .signal-icon-container {
+            width: 80px;
+            height: 80px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #eef2ff; /* indigo-50 */
+            border-radius: 9999px;
+            border: 2px solid #c7d2fe; /* indigo-200 */
+        }
+        .centered .signal-icon-container {
+             margin-bottom: 1rem;
+        }
+        .emoji-icon {
+            font-size: 3rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -132,20 +173,20 @@
                 <h1 class="text-4xl md:text-5xl font-black text-slate-800">버추얼 테이블 프로젝트</h1>
                 <p class="mt-4 text-lg text-slate-600">인터랙티브 현장 운영 가이드라인</p>
             </div>
-            <div class="flex flex-col sm:flex-row gap-4 mt-6 md:mt-0">
-                <button id="open-overview-modal" class="inline-flex items-center justify-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300">
+            <div class="flex flex-wrap justify-center gap-4 mt-6 md:mt-0">
+                <button id="open-overview-modal" class="inline-flex items-center justify-center bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition-colors duration-300 break-keep">
                     <i data-lucide="book-open" class="w-5 h-5 mr-2"></i>
                     프로젝트 개요
                 </button>
-                <button id="open-slides-modal" class="inline-flex items-center justify-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300">
+                <button id="open-slides-modal" class="inline-flex items-center justify-center bg-purple-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 break-keep">
                     <i data-lucide="presentation" class="w-5 h-5 mr-2"></i>
                     워크 프로세스
                 </button>
-                <a href="https://garimto81.github.io/virtual_table_flow/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-colors duration-300">
+                <a href="https://garimto81.github.io/virtual_table_flow/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-colors duration-300 break-keep">
                     <i data-lucide="map" class="w-5 h-5 mr-2"></i>
                     촬영 전략 맵 보기
                 </a>
-                <a href="https://garimto81.github.io/virtual_table_rehearsal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
+                <a href="https://garimto81.github.io/virtual_table_rehearsal" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300 break-keep">
                     <i data-lucide="clipboard-check" class="w-5 h-5 mr-2"></i>
                     리허설 결과 보기
                 </a>
@@ -302,13 +343,13 @@
             <!-- Section 4: Appendix -->
             <section id="equipment">
                  <h2 class="section-title text-3xl text-center mb-12">부록: 추천 장비 및 필수 액세서리</h2>
-                <h3 class="text-xl font-bold text-center text-slate-700 mb-8">필수 액세서리</h3>
+                 <h3 class="text-xl font-bold text-center text-slate-700 mb-8">필수 액세서리</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
                     <div class="step-card text-center"><i data-lucide="battery-charging" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i><h4 class="font-bold">여분 배터리</h4><p class="text-sm text-slate-600">최소 3개 이상</p></div>
                     <div class="step-card text-center"><i data-lucide="power" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i><h4 class="font-bold">보조 배터리</h4><p class="text-sm text-slate-600">대용량 Power Bank</p></div>
                     <div class="step-card text-center"><i data-lucide="grip" class="w-10 h-10 mx-auto text-emerald-600 mb-3"></i><h4 class="font-bold">거치대</h4><p class="text-sm text-slate-600">소형 삼각대/고릴라포드</p></div>
                 </div>
-                <h3 class="text-xl font-bold text-center text-slate-700 mb-8">추천 장비</h3>
+                 <h3 class="text-xl font-bold text-center text-slate-700 mb-8">추천 장비</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     <div><img src="https://github.com/garimto81/virtual_table_plan/blob/main/image%20(12).png?raw=true" alt="고프로 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-slate-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e2e8f0/64748b?text=GoPro';"><p class="text-center text-sm text-slate-600 mt-2 font-medium">고프로 시리즈</p></div>
                     <div><img src="https://github.com/garimto81/virtual_table_plan/blob/main/7b61f73f9b79143119a859898dae9521@ultra.png?raw=true" alt="DJI 액션 카메라" class="w-full aspect-square object-cover rounded-lg shadow-md border border-slate-200" onerror="this.onerror=null;this.src='https://placehold.co/400x400/e2e8f0/64748b?text=DJI+Action';"><p class="text-center text-sm text-slate-600 mt-2 font-medium">DJI 액션 시리즈</p></div>
@@ -388,12 +429,71 @@
              <div class="detail-step"><div class="detail-step-icon"><i data-lucide="clipboard-list"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 연출 기획</strong><p>콘텐츠의 전반적인 방향성을 결정하고, 촬영할 키 플레이어군을 리스트업합니다.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="user-check"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 최종 대상 선정</strong><p>기획팀으로부터 전달받은 선수 이력과 현장 상황(테이블 위치, 스택 사이즈 등)을 종합하여 최종 촬영 대상을 선정합니다.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="send"></i></div><div class="detail-step-content"><strong>3. 현장팀 전달</strong><p>선정된 플레이어 리스트와 주요 관전 포인트를 포함한 촬영 가이드를 현장 PD에게 명확하게 전달합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>David</span></div></div></div>
         </div>
         <div id="detail-pd">
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="list-checks"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 촬영 준비</strong><p>디렉터로부터 전달받은 리스트를 숙지하고, 카메라, 배터리 등 장비를 세팅합니다. 지정된 키 플레이어의 테이블 위치를 파악하고 최적의 촬영 동선을 설계합니다.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="video"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 현장 촬영</strong><ul class="list-disc space-y-2"><li>키 플레이어가 참여하는 핸드, 팟 사이즈가 큰 핸드 등 콘텐츠 가치가 높은 순간을 판단하여 촬영을 진행합니다.</li><li><span class="font-bold text-red-600">중요:</span> 1개의 핸드는 반드시 1개의 레코딩 파일만 존재해야 합니다. 만약 핸드 진행 도중 실수로 레코딩을 종료했다면, 해당 핸드는 추가 레코딩을 진행하지 않습니다.</li></ul></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="arrow-right-left"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>3. 데이터 전달 및 메모리 관리</strong><div class="space-y-4"><div class="sub-step-card"><strong>파일 번호 공유</strong><p>핸드 촬영 종료 후, 카메라에 표시된 파일 번호를 데이터 매니저에게 전달하여 앱에 기록합니다. 파일명은 아래 규칙을 따릅니다.</p><div class="mt-3 pt-3 border-t border-slate-200"><p class="font-semibold text-slate-700 text-sm">카메라 맨 파일 규칙:</p><p class="text-sm mt-1 text-slate-600">cam(카메라 순서 대문자 알파벳)(카메라맨에 귀속된 메모리 카드 순서 소문자 알파벳)일련번호</p><p class="mt-2 text-sm"><strong>예시:</strong> <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAa0001</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camAb0003</code>, <code class="bg-slate-200 text-slate-800 px-2 py-1 rounded">camBa0011</code></p></div></div><div class="sub-step-card"><strong>메모리 카드 교체 (분기)</strong><ul class="list-disc space-y-4 mt-2"><li><strong>Case 1. 후반 편집자가 현장에 있는 경우:</strong><div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200"><h4 class="font-bold text-center mb-4 text-slate-800">메모리 카드 순환 워크플로우</h4><div class="relative w-full h-72"><!-- Roles --><div class="absolute top-0 left-1/2 -translate-x-1/2 text-center"><i data-lucide="camera" class="w-10 h-10 text-slate-700 mx-auto"></i><p class="font-bold text-sm mt-1">카메라 맨</p></div><div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><i data-lucide="monitor" class="w-10 h-10 text-slate-700 mx-auto"></i><p class="font-bold text-sm mt-1">후반팀</p></div><!-- Bins --><div class="absolute top-1/2 -translate-y-1/2 left-0 text-center"><div class="relative w-28 h-24 border-2 border-dashed border-green-500 bg-green-50 rounded-lg flex flex-col items-center justify-center"><i data-lucide="sd-card" class="w-8 h-8 text-green-600"></i><p class="text-sm mt-1 font-semibold text-green-800">작업 완료 통</p></div></div><div class="absolute top-1/2 -translate-y-1/2 right-0 text-center"><div class="relative w-28 h-24 border-2 border-dashed border-sky-500 bg-sky-50 rounded-lg flex flex-col items-center justify-center"><i data-lucide="sd-card" class="w-8 h-8 text-sky-600"></i><p class="text-sm mt-1 font-semibold text-sky-800">미작업 통</p></div></div><!-- Arrows & Labels --><div class="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 text-center"><p class="text-xs font-semibold text-slate-500 mb-1">① 수령</p><i data-lucide="arrow-up-right" class="w-8 h-8 text-slate-400"></i></div><div class="absolute top-[20%] right-[25%] translate-x-1/2 -translate-y-1/2 text-center"><p class="text-xs font-semibold text-slate-500 mb-1">② 반납</p><i data-lucide="arrow-down-right" class="w-8 h-8 text-slate-400"></i></div><div class="absolute bottom-[20%] right-[25%] translate-x-1/2 translate-y-1/2 text-center"><i data-lucide="arrow-down-left" class="w-8 h-8 text-slate-400"></i><p class="text-xs font-semibold text-slate-500 mt-1">③ 처리</p></div><div class="absolute bottom-[20%] left-[25%] -translate-x-1/2 translate-y-1/2 text-center"><i data-lucide="arrow-up-left" class="w-8 h-8 text-slate-400"></i><p class="text-xs font-semibold text-slate-500 mt-1">④ 보충</p></div></div></div></li><li><strong>Case 2. 후반 편집자가 본사에 있는 경우:</strong><div class="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200"><h4 class="font-bold text-center mb-6 text-slate-800">선형 상호작용 다이어그램</h4><div class="flex items-center justify-center w-full py-4"><!-- Actor 1: Cameraman --><div class="flex flex-col items-center text-center w-28"><i data-lucide="camera" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">카메라 맨</p></div><!-- Interaction 1 --><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">① 카드 전달</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">④ 카드 반환</p></div><!-- Actor 2: Data Manager --><div class="flex flex-col items-center text-center w-28"><i data-lucide="user" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">데이터 매니저</p></div><!-- Interaction 2 --><div class="flex-1 flex flex-col items-center text-center px-2"><p class="text-xs font-semibold text-slate-500 -mb-1 whitespace-nowrap">② 데이터 전송</p><i data-lucide="arrow-right" class="w-8 h-8 text-slate-400"></i><i data-lucide="arrow-left" class="w-8 h-8 text-slate-400 mt-2"></i><p class="text-xs font-semibold text-slate-500 -mt-1 whitespace-nowrap">③ 작업 후 복귀</p></div><!-- Actor 3: Data Station --><div class="flex flex-col items-center text-center w-28"><i data-lucide="laptop" class="w-10 h-10 text-slate-700"></i><p class="font-bold text-sm mt-1">데이터 스테이션</p></div></div></div></li></ul></div></div></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제 시나리오</strong><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam1 / PD:</span> Leo</p></div><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam2:</span> Aiden</p></div></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>4. 인원 편제 시나리오</strong><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam1 / PD:</span> Leo</p></div><div class="sub-step-card"><p><span class="font-semibold text-slate-700">Cam2:</span> Aiden</p></div></div></div>
+            
+            <div class="mt-8 pt-8 border-t-2 border-dashed">
+                <div class="detail-step">
+                    <div class="detail-step-icon"><i data-lucide="hand-metal"></i></div>
+                    <div class="detail-step-content">
+                        <strong>5. 비언어적 소통 가이드</strong>
+                        <p class="mb-8">현장에서의 소음 문제를 해결하고 신속한 의사결정을 돕기 위한 비언어적 소통 프로토콜입니다. 모든 카메라 오퍼레이터는 아래 신호 체계를 숙지해야 합니다.</p>
+                        
+                        <div id="principles" class="mb-12">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">핵심 운영 원칙</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="p-4 bg-white rounded-lg shadow-sm border flex items-center space-x-3"><div class="flex-shrink-0 bg-emerald-100 p-2 rounded-full"><i data-lucide="zap-off" class="w-5 h-5 text-emerald-700"></i></div><div><h4 class="font-bold text-md">은밀성</h4><p class="text-xs text-slate-600">조용하고 간결하게 소통</p></div></div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm border flex items-center space-x-3"><div class="flex-shrink-0 bg-sky-100 p-2 rounded-full"><i data-lucide="eye" class="w-5 h-5 text-sky-700"></i></div><div><h4 class="font-bold text-md">명확성</h4><p class="text-xs text-slate-600">오해 없이 명확한 신호 사용</p></div></div>
+                                <div class="p-4 bg-white rounded-lg shadow-sm border flex items-center space-x-3"><div class="flex-shrink-0 bg-amber-100 p-2 rounded-full"><i data-lucide="rocket" class="w-5 h-5 text-amber-700"></i></div><div><h4 class="font-bold text-md">효율성</h4><p class="text-xs text-slate-600">최소 동작으로 신속히 교환</p></div></div>
+                            </div>
+                        </div>
+
+                        <div id="positioning" class="mb-12">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">카메라 배치 및 프레임 관리</h3>
+                            <p class="text-slate-600 mb-6 text-sm">두 오퍼레이터는 테이블을 중심으로 <strong>서로 대칭</strong>되게 위치하는 것을 원칙으로 합니다. 촬영 전 항상 상대방이 자신의 프레임에 노출되는지 확인하고 아래 신호로 위치를 조정하세요.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="signal-card emoji-layout"><div class="emoji-icon">🤚➡️</div><div class="flex-grow"><h4 class="text-lg font-bold mb-1">비켜줘 (Move)</h4><p class="text-slate-500 font-medium text-sm mb-2">상황: 상대방이 내 앵글에 노출됨</p><p class="text-slate-600 text-sm">손바닥을 펴서 밀어내는 동작으로 위치 조정을 요청합니다.</p></div></div>
+                                <div class="signal-card emoji-layout"><div class="emoji-icon">👌✅</div><div class="flex-grow"><h4 class="text-lg font-bold mb-1">클리어 (Clear)</h4><p class="text-slate-500 font-medium text-sm mb-2">상황: 상대방이 앵글에서 벗어남</p><p class="text-slate-600 text-sm">'OK' 모양을 만들어 프레임이 깨끗함을 확인시켜 줍니다.</p></div></div>
+                            </div>
+                        </div>
+                        
+                        <div id="communication" class="mb-12">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">단계별 소통 프로토콜</h3>
+                            <div class="mb-8"><h4 class="text-lg font-semibold mb-4 text-slate-700">음성 신호 (촬영 전)</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="list-video" class="w-10 h-10 text-indigo-600"></i></div><h4 class="text-lg font-bold mb-1">"Table Three."</h4><p class="text-slate-500 font-medium text-sm mb-2">신호: 대상 지정</p><p class="text-slate-600 text-sm">촬영할 테이블 번호를 명확히 공유합니다.</p></div>
+                                    <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="bell-ring" class="w-10 h-10 text-indigo-600"></i></div><h4 class="text-lg font-bold mb-1">"Ready."</h4><p class="text-slate-500 font-medium text-sm mb-2">신호: 필요 신호</p><p class="text-slate-600 text-sm">중요 핸드 시작을 알리고 준비를 유도합니다.</p></div>
+                                    <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="user-check" class="w-10 h-10 text-indigo-600"></i></div><h4 class="text-lg font-bold mb-1">(고개 끄덕이기)</h4><p class="text-slate-500 font-medium text-sm mb-2">신호: 준비 확인</p><p class="text-slate-600 text-sm">상대방 신호에 대한 준비 완료 응답입니다.</p></div>
+                                </div>
+                            </div>
+                            <div><h4 class="text-lg font-semibold mb-4 text-slate-700">수신호 (촬영 중/직후)</h4>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div class="signal-card emoji-layout"><div class="emoji-icon">👌</div><div class="flex-grow"><h4 class="text-md font-bold mb-1">롤링 (Rolling)</h4><p class="text-slate-500 text-xs font-medium mb-1">수신호: 손가락 'O'</p><p class="text-slate-600 text-xs">녹화 시작 신호</p></div></div>
+                                    <div class="signal-card emoji-layout"><div class="emoji-icon">☝️</div><div class="flex-grow"><h4 class="text-md font-bold mb-1">1캠 완료</h4><p class="text-slate-500 text-xs font-medium mb-1">수신호: 손가락 1개</p><p class="text-slate-600 text-xs">1번 캠 촬영 완료</p></div></div>
+                                    <div class="signal-card emoji-layout"><div class="emoji-icon">✌️</div><div class="flex-grow"><h4 class="text-md font-bold mb-1">2캠 완료</h4><p class="text-slate-500 text-xs font-medium mb-1">수신호: 손가락 2개</p><p class="text-slate-600 text-xs">2번 캠 촬영 완료</p></div></div>
+                                    <div class="signal-card emoji-layout"><div class="emoji-icon">👋❌</div><div class="flex-grow"><h4 class="text-md font-bold mb-1">촬영 실패 (Miss)</h4><p class="text-slate-500 text-xs font-medium mb-1">수신호: 손 흔들기</p><p class="text-slate-600 text-xs">문제 발생 알림</p></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="additional-signals">
+                            <h3 class="text-xl font-bold mb-4 text-slate-800">추가 제안 신호 (상황별)</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="signal-card emoji-layout"><div class="emoji-icon">🔋👎</div><div class="flex-grow"><h4 class="text-lg font-bold mb-1">배터리 경고</h4><p class="text-slate-500 font-medium text-sm mb-2">수신호: 주먹 쥐었다 펴기</p><p class="text-slate-600 text-sm">배터리 부족이 임박했음을 알립니다.</p></div></div>
+                                <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="hard-drive" class="w-10 h-10 text-rose-500"></i></div><h4 class="text-lg font-bold mb-1">메모리 풀 <span class="text-xl ml-1">💾🚫</span></h4><p class="text-slate-500 font-medium text-sm mb-2">수신호: 머리 위 X자</p><p class="text-slate-600 text-sm">메모리 카드 교체가 필요함을 알립니다.</p></div>
+                                <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="focus" class="w-10 h-10 text-sky-500"></i></div><h4 class="text-lg font-bold mb-1">포커스 문제 <span class="text-xl ml-1">👁️🔄</span></h4><p class="text-slate-500 font-medium text-sm mb-2">수신호: 눈 앞 원 그리기</p><p class="text-slate-600 text-sm">포커스 조정이 필요함을 전달합니다.</p></div>
+                                <div class="signal-card centered"><div class="signal-icon-container"><i data-lucide="move-3d" class="w-10 h-10 text-teal-500"></i></div><h4 class="text-lg font-bold mb-1">위치 변경 <span class="text-xl ml-1">🔄↔️</span></h4><p class="text-slate-500 font-medium text-sm mb-2">수신호: 양손 회전 동작</p><p class="text-slate-600 text-sm">더 나은 앵글을 위해 위치 변경을 제안합니다.</p></div>
+                                <div class="signal-card emoji-layout"><div class="emoji-icon">✋🛑</div><div class="flex-grow"><h4 class="text-lg font-bold mb-1">긴급 중단</h4><p class="text-slate-500 font-medium text-sm mb-2">수신호: 손바닥 정면 표시</p><p class="text-slate-600 text-sm">모든 촬영을 즉시 중단해야 할 때 사용합니다.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="detail-manager">
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="keyboard"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 데이터 생성 (전용 앱 사용)</strong><p>전용 앱을 통해 아래 순서대로 핸드 정보를 기록하고 최종 전송합니다. (날짜는 자동으로 처리됩니다.)</p><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">A. 핸드 기본 정보 설정</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>1. 테이블 선택:</strong> <br> 시트에 저장된 테이블 목록에서 핸드가 진행된 테이블을 선택합니다. <br><em>(예: `T02` 선택)</em></p></div><div class="sub-step-card"><p><strong>2. 플레이어 선택 및 카드 입력:</strong> <br> 자동으로 호출된 목록에서 핸드에 참여한 플레이어를 순서대로 선택하고, 쇼다운 시 확인된 홀 카드를 직접 입력합니다.<br><em>(예: 'Jaewon' 선택 후 `10h 9d` 입력)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">B. 액션 및 보드 기록</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>3. 스트릿별 액션 기록:</strong> <br> Preflop부터 River까지, 핸드 진행 상황에 따라 모든 액션(Bet, Call, Fold 등)과 커뮤니티 카드를 순서대로 정확히 기록합니다. <br><em>(예: Jaewon `BET 5000`)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">C. 핸드 마무리 및 전송</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>4. 최종 승자 선택:</strong> <br> 핸드가 종료되면 최종 승자를 선택하면, 팟 분배가 자동으로 처리됩니다. <br><em>(예: 'Jaewon' 선택)</em></p></div><div class="sub-step-card"><p><strong>5. 촬영 정보 입력 (최종 단계):</strong> <br> 카메라 맨에게 전달받은 <strong>영상 파일명</strong>을 입력하고, 그래픽이 시작되어야 할 <strong>스트릿 버튼</strong>(Preflop/Flop/Turn/River)을 클릭하여 시작 지점을 표시합니다. <br><em>(예: 파일명 <code class="bg-slate-200 text-slate-800 px-1 py-0.5 rounded">camAa0001</code>, 시작 지점 `Flop` 클릭)</em></p></div><div class="sub-step-card"><p><strong>6. 시트 전송:</strong> <br> 모든 정보 입력이 완료되었는지 최종 확인 후, '시트에 전송' 버튼을 눌러 데이터를 마스터 구글 시트로 전송합니다.</p></div></div></div><div class="mt-6 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl"><div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden"><img src="https://github.com/garimto81/virtual_table_rehearsal/blob/main/KakaoTalk_20250901_221504466.jpg?raw=true" class="w-full h-auto" alt="Data entry app interface on a smartphone"></div></div></div></div>
