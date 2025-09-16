@@ -634,8 +634,9 @@
                     </div>
                 </div>
             </div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="archive"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>6. 일일 미사용 소스 아카이빙</strong><p>모든 편집 작업 종료 후, 당일 촬영 원본 중 최종 콘텐츠에 사용되지 않은 모든 '미사용 소스'를 본사에 전달하여 아카이빙합니다. 자세한 내용은 '4. 미사용 소스 아카이빙' 섹션을 참조하세요.</p></div></div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>7. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Aiden</span></div></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="share-2"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>6. 내용 공유 프로세스</strong><p><strong>시트 규칙:</strong> 'virtual' 시트의 B열(타임스탬프)을 기준으로 매칭되는 시간값을 찾고, F열에 생성한 폴더/파일명, H열에 콘텐츠 내용을 정확히 입력하여 공유합니다.</p><img src="https://github.com/garimto81/virtual_table_plan/blob/main/asset/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-16%201512501.png?raw=true" alt="큐시트 입력 예시" class="w-full mt-4 border border-slate-200 rounded-md"></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="archive"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>7. 일일 미사용 소스 아카이빙</strong><p>모든 편집 작업 종료 후, 당일 촬영 원본 중 최종 콘텐츠에 사용되지 않은 모든 '미사용 소스'를 본사에 전달하여 아카이빙합니다. 자세한 내용은 '4. 미사용 소스 아카이빙' 섹션을 참조하세요.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>8. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Aiden</span></div></div></div>
         </div>
    </div>
 
@@ -793,7 +794,7 @@
 
             if(videoModalCloseBtn) videoModalCloseBtn.addEventListener('click', closeVideoModal);
             if(videoModal) videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal) closeRoleModal();
+                if (e.target === roleModal) closeRoleModal();
             });
         }
         
