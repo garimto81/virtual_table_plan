@@ -553,6 +553,23 @@
             </div>
         </div>
         <div id="detail-manager">
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="shield-check"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>0. 기본 수칙: 상시 관리 (Pre-Action Management)</strong><p>데이터 매니저는 핸드가 진행되지 않는 시간에도 항상 아래 항목들을 최신 상태로 파악하고 관리해야 합니다.</p><div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-indigo-500"><div class="flex items-start gap-3"><i data-lucide="user-cog" class="w-6 h-6 text-indigo-600 flex-shrink-0 mt-1"></i><div><h4 class="font-bold text-md text-indigo-800">키 플레이어 칩 스택</h4><p class="text-xs text-slate-600 mt-1">핸드 시작 전 앱에 미리 업데이트</p></div></div></div>
+                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-gray-400"><div class="flex items-start gap-3"><i data-lucide="users" class="w-6 h-6 text-gray-500 flex-shrink-0 mt-1"></i><div><h4 class="font-bold text-md text-gray-700">전체 칩 스택 (권장)</h4><p class="text-xs text-slate-600 mt-1">여유 시 파악해두면 올인 상황에 신속 대응 가능</p></div></div></div>
+                <div class="p-4 bg-white rounded-lg shadow-sm border-l-4 border-rose-500"><div class="flex items-start gap-3"><i data-lucide="user-x" class="w-6 h-6 text-rose-600 flex-shrink-0 mt-1"></i><div><h4 class="font-bold text-md text-rose-800">플레이어 변동</h4><p class="text-xs text-slate-600 mt-1">탈락/테이블 이동 즉시 반영</p></div></div></div>
+            </div>
+            <div class="mt-4 p-3 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-600"></i>
+                    </div>
+                    <div class="ml-3">
+                        <h5 class="text-sm font-bold text-amber-800">🔥 과부하 방지를 위한 핵심 전략</h5>
+                        <p class="text-xs text-amber-700 mt-1">이 사전 작업을 통해 핸드 진행 중에는 <strong class="font-bold">오직 '액션' 기록에만 집중</strong>할 수 있습니다. 이는 복잡한 상황에서 발생하는 정보 과부하를 막고 데이터의 정확성을 높이는 가장 중요한 기본 수칙입니다.</p>
+                    </div>
+                </div>
+            </div>
+            </div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="keyboard"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 데이터 생성 (전용 앱 사용)</strong><p>전용 앱을 통해 아래 순서대로 핸드 정보를 기록하고 최종 전송합니다. (날짜는 자동으로 처리됩니다.)</p><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">A. 핸드 기본 정보 설정</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>1. 테이블 선택:</strong> <br> 시트에 저장된 테이블 목록에서 핸드가 진행된 테이블을 선택합니다. <br><em>(예: `T02` 선택)</em></p></div><div class="sub-step-card"><p><strong>2. 플레이어 선택 및 카드 입력:</strong> <br> 자동으로 호출된 목록에서 핸드에 참여한 플레이어를 순서대로 선택하고, 쇼다운 시 확인된 홀 카드를 직접 입력합니다.<br><em>(예: 'Jaewon' 선택 후 `10h 9d` 입력)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">B. 액션 및 보드 기록</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>3. 스트릿별 액션 기록:</strong> <br> Preflop부터 River까지, 핸드 진행 상황에 따라 모든 액션(Bet, Call, Fold 등)과 커뮤니티 카드를 순서대로 정확히 기록합니다. <br><em>(예: Jaewon `BET 5000`)</em></p></div></div></div><div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">C. 핸드 마무리 및 전송</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>4. 최종 승자 선택:</strong> <br> 핸드가 종료되면 최종 승자를 선택하면, 팟 분배가 자동으로 처리됩니다. <br><em>(예: 'Jaewon' 선택)</em></p></div><div class="sub-step-card"><p><strong>5. 촬영 정보 입력 (최종 단계):</strong> <br> 카메라 맨에게 전달받은 <strong>영상 파일명</strong>을 입력하고, 그래픽이 시작되어야 할 <strong>스트릿 버튼</strong>(Preflop/Flop/Turn/River)을 클릭하여 시작 지점을 표시합니다. <br><em>(예: 파일명 <code class="bg-slate-200 text-slate-800 px-1 py-0.5 rounded">camAa0001</code>, 시작 지점 `Flop` 클릭)</em></p></div><div class="sub-step-card"><p><strong>6. 시트 전송:</strong> <br> 모든 정보 입력이 완료되었는지 최종 확인 후, '시트에 전송' 버튼을 눌러 데이터를 마스터 구글 시트로 전송합니다.</p></div></div></div>
                  <div class="mt-4 pt-4 border-t"><h4 class="font-bold text-lg text-slate-700 mb-2">D. 소프트 콘텐츠 데이터 처리</h4><div class="space-y-3"><div class="sub-step-card"><p><strong>예외 규칙:</strong><br>인터뷰, 스케치 등 데이터 기록이 어려운 소프트 콘텐츠의 경우, 관련 내용이 담긴 구글 시트 화면을 직접 사진으로 촬영하여 Whats App을 통해 후반팀에 전달하고, 데이터 정리는 추후에 진행합니다.</p></div></div></div>
                 <div class="mt-6 max-w-xs mx-auto bg-slate-800 rounded-[2.5rem] border-[14px] border-slate-800 shadow-xl"><div class="w-full h-full bg-slate-800 rounded-[2rem] overflow-hidden"><img src="https://github.com/garimto81/virtual_table_plan/blob/main/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-11%20125445.png?raw=true" class="w-full h-auto" alt="Data entry app interface on a smartphone"></div></div></div></div>
@@ -634,11 +651,23 @@
                     </div>
                 </div>
             </div>
-            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="share-2"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>6. 내용 공유 프로세스</strong><p><strong>시트 규칙:</strong> 'virtual' 시트의 B열(타임스탬프)을 기준으로 매칭되는 시간값을 찾고, F열에 생성한 폴더/파일명, H열에 콘텐츠 내용을 정확히 입력하여 공유합니다.</p><img src="https://github.com/garimto81/virtual_table_plan/blob/main/asset/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-16%201512501.png?raw=true" alt="큐시트 입력 예시" class="w-full mt-4 border border-slate-200 rounded-md"></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="share-2"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>6. 내용 공유 프로세스</strong><p><strong>시트 규칙:</strong> 'virtual' 시트의 B열(타임스탬프)을 기준으로 매칭되는 시간값을 찾고, 아래 규칙에 따라 F열과 H열을 채워 공유합니다.</p><ul class="list-disc list-inside mt-2 space-y-1 text-sm"><li><strong>버추얼 테이블 (VT):</strong> F열에 <strong class="font-semibold">파일명과 동일한 폴더명</strong>을 입력합니다.</li><li><strong>소프트 콘텐츠 (SC):</strong> F열에 <strong class="font-semibold">폴더명</strong>만 입력합니다.</li><li><strong>공통:</strong> H열에 해당 콘텐츠의 내용을 정확히 입력합니다.</li></ul><img src="https://github.com/garimto81/virtual_table_plan/blob/main/asset/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-09-16%201512501.png?raw=true" alt="큐시트 입력 예시" class="w-full mt-4 border border-slate-200 rounded-md"></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="archive"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>7. 일일 미사용 소스 아카이빙</strong><p>모든 편집 작업 종료 후, 당일 촬영 원본 중 최종 콘텐츠에 사용되지 않은 모든 '미사용 소스'를 본사에 전달하여 아카이빙합니다. 자세한 내용은 '4. 미사용 소스 아카이빙' 섹션을 참조하세요.</p></div></div>
             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>8. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Aiden</span></div></div></div>
         </div>
-   </div>
+        <div id="detail-designer">
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="pencil-ruler"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 에셋 제작</strong><p>방송 컨셉에 맞춰 카드, 칩, 선수 정보창, 베팅 금액 등 Poker UI 그래픽에 필요한 모든 시각적 에셋을 디자인하고 제작합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="layout-template"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 시스템 설계</strong><p>후반 편집자가 구글 시트의 데이터를 손쉽게 연동하고 수정할 수 있도록 에프터이펙트 등의 툴을 사용하여 모션 그래픽 템플릿(MOGRT) 또는 유사한 형태의 시스템을 설계합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="package-check"></i></div><div class="detail-step-content"><strong>3. 패키지 전달</strong><p>완성된 모든 그래픽 에셋과 템플릿을 하나의 패키지로 정리하여, 프리 프로덕션 단계에서 <strong>후반 편집자</strong>에게 전달합니다.</p></div></div>
+             <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당: </strong><span>편집팀</span></div></div></div>
+        </div>
+        <div id="detail-tech">
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="scan-line"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 네트워크 환경 분석</strong><p>대회 시작 전, 현장의 네트워크 상태(유선/무선 속도, 신호 강도, 안정성)를 사전에 면밀히 분석합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="router"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>2. 전용 라인 확보</strong><p>자동화 워크플로우(클라우드 업로드 등)에 필요한 최소 속도인 10Mbps 이상을 안정적으로 보장하는 유/무선 네트워크 환경을 구축합니다. 필요시 별도의 통신사와 협의하여 전용 회선을 설치합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="share-2"></i></div><div class="detail-step-content"><strong>3. 정보 공유 및 지원</strong><p>구축된 네트워크 정보(Wi-Fi 이름/비밀번호, 유선 포트 위치 등)를 <strong>현장 PD팀</strong>에 명확히 공유하고, 운영 중 발생할 수 있는 네트워크 문제를 지속적으로 모니터링하고 지원합니다.</p></div></div>
+            <div class="detail-step"><div class="detail-step-icon"><i data-lucide="users"></i></div><div class="detail-step-content"><strong>4. 인원 편제</strong><div class="sub-step-card"><strong>담당자: </strong><span>Dean</span></div></div></div>
+        </div>
+    </div>
 
     <script>
         lucide.createIcons();
