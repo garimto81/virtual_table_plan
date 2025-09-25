@@ -181,6 +181,10 @@
                     <i data-lucide="presentation" class="w-5 h-5 mr-2"></i>
                     워크 프로세스
                 </button>
+                 <a href="https://garimto81.github.io/virtual_workflow/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-slate-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-slate-700 transition-colors duration-300 break-keep">
+                    <i data-lucide="git-branch" class="w-5 h-5 mr-2"></i>
+                    VT, SC, BS 워크 플로우
+                </a>
                 <a href="https://garimto81.github.io/virtual_table_flow/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-sky-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-sky-700 transition-colors duration-300 break-keep">
                     <i data-lucide="map" class="w-5 h-5 mr-2"></i>
                     촬영 전략 맵 보기
@@ -313,7 +317,7 @@
                         <i data-lucide="sheet" class="w-16 h-16 text-emerald-600 mx-auto mb-4"></i>
                         <h4 class="text-2xl font-bold text-slate-800 mb-2">실시간 큐시트(Q-Sheet) 시스템</h4>
                         <p class="text-slate-600 mb-6">모든 제작 현황은 Google Sheets를 통해 실시간으로 공유됩니다. 모든 팀원은 아래 운영 방식을 숙지하고 큐시트를 통해 진행 상황을 파악해야 합니다.</p>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
+                        <a href="https://docs.google.com/spreadsheets/d/1M-LM2KkwLNOTygtrPVdnYLqqBoz4MmZvbglUaptSYqE/edit?gid=1451613436#gid=1451613436" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-emerald-700 transition-colors duration-300">
                            <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
                             큐시트 바로가기
                         </a>
@@ -428,6 +432,14 @@
             <iframe class="w-full h-full" src="" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
         </div>
     </div>
+    <div id="vsc-workflow-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="vsc-workflow-modal-close" class="modal-close-btn"><i data-lucide="x" class="w-6 h-6"></i></button>
+            <h3 class="text-2xl font-bold text-slate-800 mb-6">VT, SC, BS 워크 플로우</h3>
+            <p>워크플로우 내용이 여기에 추가될 예정입니다.</p>
+        </div>
+    </div>
+
     <div class="hidden">
         <div id="detail-director">
              <div class="detail-step"><div class="detail-step-icon"><i data-lucide="clipboard-list"></i></div><div class="detail-step-connector"></div><div class="detail-step-content"><strong>1. 연출 기획</strong><p>콘텐츠의 전반적인 방향성을 결정하고, 촬영할 키 플레이어군을 리스트업합니다.</p></div></div>
@@ -893,6 +905,31 @@
                 if (e.target === slidesModal) closeModal();
             });
         }
+        
+        function setupVscWorkflowModal() {
+            const vscModal = document.getElementById('vsc-workflow-modal');
+            const openBtn = document.getElementById('open-vsc-workflow-modal');
+            const closeBtn = document.getElementById('vsc-workflow-modal-close');
+
+            function openModal() {
+                if(vscModal) {
+                    vscModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            function closeModal() {
+                if(vscModal) {
+                    vscModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            if(openBtn) openBtn.addEventListener('click', openModal);
+            if(closeBtn) closeBtn.addEventListener('click', closeModal);
+            if(vscModal) vscModal.addEventListener('click', (e) => {
+                if (e.target === vscModal) closeModal();
+            });
+        }
 
         document.addEventListener('DOMContentLoaded', function () {
             setupSmoothScrolling();
@@ -901,6 +938,7 @@
             setupVideoModal();
             setupOverviewModal();
             setupSlidesModal();
+            setupVscWorkflowModal();
         });
     </script>
 </body>
